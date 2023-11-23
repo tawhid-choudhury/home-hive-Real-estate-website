@@ -6,7 +6,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const pages = ['Home', 'All properties', 'Dashboard'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
@@ -167,12 +166,11 @@ const Navbar = () => {
                                 </Menu>
                             </Box>
                             :
-                            <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                                 <Link to='/login'><Button variant="contained"> Login</Button></Link>
                                 <p style={{ color: '#727c82' }}>or</p>
                                 <Link to='/signup'><Button variant="outlined">Sign up</Button></Link>
                             </div>
-
                         }
                     </Toolbar>
                 </Container>
