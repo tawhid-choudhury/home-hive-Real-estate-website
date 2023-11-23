@@ -5,9 +5,12 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import router from "./routes/Routes";
+import SiteTheme from "./utils/MuiTheme/MuiTheme";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <SiteTheme>
+      <RouterProvider router={router} />
+    </SiteTheme>
   </React.StrictMode>
 );
