@@ -1,16 +1,16 @@
 import Heading from "../../components/shared/TextStyles/Heading";
 import AdvertisedProperties from "./AdvertisedProperties";
 import Banner from "./Banner";
+import Testimonials from "./Testimonials";
 
 const Home = () => {
     return (
         <div>
-            <Banner></Banner>
-            <Heading
-                title={"Discover Our Featured Listings"}
-                subtitle={"These are the best deals handpicked by our experts"}>
-            </Heading>
-            <AdvertisedProperties></AdvertisedProperties>
+            <Banner />
+            <Heading title={"Discover Our Featured Listings"} subtitle={"These are the best deals handpicked by our experts"} />
+            <AdvertisedProperties />
+            <Heading title={"Testimonials"} subtitle={"Discover What Our Clients Say: Real Stories, Real Satisfaction."} />
+            <Testimonials />
         </div>
     );
 };
