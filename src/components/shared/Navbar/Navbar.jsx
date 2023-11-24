@@ -31,7 +31,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <AppBar sx={{ bgcolor: 'white' }} position="static">
+            <AppBar elevation={1} position="fixed">
                 <Container maxWidth="2xl">
                     <Toolbar disableGutters>
                         <Typography
@@ -49,7 +49,7 @@ const Navbar = () => {
                             }}
                         >
                             <span style={{ color: "#b79537" }}>Home</span>
-                            <span style={{ color: '#727c82' }}>Hive</span>
+                            <span style={{ color: '#fff' }}>Hive</span>
                         </Typography>
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -125,14 +125,14 @@ const Navbar = () => {
                             }}
                         >
                             <span style={{ color: "#b79537" }}>Home</span>
-                            <span style={{ color: '#727c82' }}>Hive</span>
+                            <span style={{ color: '#fff' }}>Hive</span>
                         </Typography>
 
                         {/* big screen nav */}
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', gap: 3 }}>
-                            <NavLink style={{ color: '#727c82' }} to={'/'}>Home</NavLink>
-                            <NavLink style={{ color: '#727c82' }} to={'/all'}>All properties</NavLink>
-                            <NavLink style={{ color: '#727c82' }} to={'/dashboard'}>Dashboard</NavLink>
+                            <NavLink style={{ color: '#fff' }} to={'/'}>Home</NavLink>
+                            <NavLink style={{ color: '#fff' }} to={'/all'}>All properties</NavLink>
+                            <NavLink style={{ color: '#fff' }} to={'/dashboard'}>Dashboard</NavLink>
                         </Box>
 
                         {false ?
@@ -167,9 +167,9 @@ const Navbar = () => {
                             </Box>
                             :
                             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                                <Link to='/login'><Button variant="contained"> Login</Button></Link>
+                                <Link to='/login'><Button color="secondary" variant="contained"> Login</Button></Link>
                                 <p style={{ color: '#727c82' }}>or</p>
-                                <Link to='/signup'><Button variant="outlined">Sign up</Button></Link>
+                                <Link to='/signup'><Button color="secondary" variant="outlined">Sign up</Button></Link>
                             </div>
                         }
                     </Toolbar>
