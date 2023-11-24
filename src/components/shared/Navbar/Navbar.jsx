@@ -1,7 +1,6 @@
 // import React from 'react';
 
 import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from "@mui/material";
-import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -55,6 +54,7 @@ const Navbar = () => {
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
                                 size="large"
+                                color="secondary"
                                 aria-label="account of current user"
                                 aria-controls="menu-appbar"
                                 aria-haspopup="true"
@@ -107,9 +107,25 @@ const Navbar = () => {
                                         <NavLink style={{ color: '#727c82' }} to={'/dashboard'}>Dashboard</NavLink>
                                     </Typography>
                                 </MenuItem>
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography
+                                        textAlign="center"
+                                        style={{ color: "#b79537" }}
+                                    >
+                                        <NavLink style={{ color: '#727c82' }} to={'/login'}>login</NavLink>
+                                    </Typography>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography
+                                        textAlign="center"
+                                        style={{ color: "#b79537" }}
+                                    >
+                                        <NavLink style={{ color: '#727c82' }} to={'/signup'}>signup</NavLink>
+                                    </Typography>
+                                </MenuItem>
                             </Menu>
                         </Box>
-                        <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
                         <Typography
                             variant="h5"
                             noWrap
@@ -166,11 +182,11 @@ const Navbar = () => {
                                 </Menu>
                             </Box>
                             :
-                            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                                <Link to='/login'><Button color="secondary" variant="contained"> Login</Button></Link>
+                            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: "center", gap: 1 }}>
+                                <Link to='/login'><Button sx={{ typography: { xs: 'body', md: 'body' } }} size="small" color="secondary" variant="contained"> Login</Button></Link>
                                 <p style={{ color: '#727c82' }}>or</p>
-                                <Link to='/signup'><Button color="secondary" variant="outlined">Sign up</Button></Link>
-                            </div>
+                                <Link to='/signup'><Button sx={{ typography: { xs: 'body', md: 'body' } }} size="small" color="secondary" variant="outlined">Sign up</Button></Link>
+                            </Box>
                         }
                     </Toolbar>
                 </Container>
