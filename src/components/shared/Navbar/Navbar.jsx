@@ -30,7 +30,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <AppBar elevation={1} position="fixed">
+            <AppBar sx={{ backgroundColor: '#032e4b' }} elevation={1} position="fixed">
                 <Container maxWidth="2xl">
                     <Toolbar disableGutters>
                         <Typography

@@ -1,0 +1,39 @@
+[
+    {
+      "propertyImage": "https://i.ibb.co/9TPDJY5/r-architecture-KQgr-Vf-R3r74-unsplash.jpg",
+      "propertyTitle": "Modern City Apartment",
+      "propertyLocation": "123 Main Street, Cityville",
+      "agentName": "John Doe",
+      "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
+      "verificationStatus": "Verified",
+      "priceRange": "$500,000 - $600,000"
+    },
+    {
+      "propertyImage": "https://i.ibb.co/Mf3nGd9/r-architecture-Cn87-TISYij8-unsplash.jpg",
+      "propertyTitle": "Spacious Suburban House",
+      "propertyLocation": "456 Oak Avenue, Suburbia",
+      "agentName": "Jane Smith",
+      "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
+      "verificationStatus": "Verified",
+      "priceRange": "$700,000 - $800,000"
+    },
+    {
+      "propertyImage": "https://i.ibb.co/8M5b2kr/banner2.jpg",
+      "propertyTitle": "Scenic Waterfront Villa",
+      "propertyLocation": "789 Coastal Road, Beachside",
+      "agentName": "Robert Johnson",
+      "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
+      "verificationStatus": "Pending",
+      "priceRange": "$1,200,000 - $1,500,000"
+    },
+    {
+      "propertyImage": "https://i.ibb.co/VSsnbSD/banner1.jpg",
+      "propertyTitle": "Rustic Countryside Cottage",
+      "propertyLocation": "101 Pine Lane, Countryside",
+      "agentName": "Emily Williams",
+      "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
+      "verificationStatus": "Verified",
+      "priceRange": "$300,000 - $400,000"
+    }
+  ]
+  
