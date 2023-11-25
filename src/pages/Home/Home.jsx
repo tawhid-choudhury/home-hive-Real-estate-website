@@ -11,7 +11,7 @@ const Home = () => {
             <AdvertisedProperties />
             <Heading title={"Testimonials"} subtitle={"Discover What Our Clients Say: Real Stories, Real Satisfaction."} />
             <Testimonials />
-        </div>
+        </div >
     );
 };
 

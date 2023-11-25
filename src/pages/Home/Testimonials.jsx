@@ -1,18 +1,43 @@
-import { Container, Grid } from '@mui/material';
+import { Container } from '@mui/material';
 import TestimonialCard from './TestimonialCard';
+import { useEffect, useRef, useState } from 'react';
+import { motion } from "framer-motion"
 const Testimonials = () => {
+    const [reviews, setReviews] = useState([])
+    const [width, setWidth] = useState(0);
+    const carousel = useRef();
+
+
+
+
+    //todo: remove with tenstack when database available
+    useEffect(() => {
+        fetch("tempReview.json")
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
+
+    useEffect(() => {
+        setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
+    }, [reviews])
     return (
         <div>
-            <Container maxWidth="xl">
-                <Grid container spacing={2}>
+            <Container maxWidth="lg">
+                <motion.div ref={carousel} className='carousel pb-14'>
+                    <motion.div
+                        drag="x"
+                        dragConstraints={{ right: 0, left: -width }}
+                        className='inner-carousel'
+                    >
 
+                        {reviews.map((review, idx) =>
+                            <motion.div className='item' key={idx}>
+                                <TestimonialCard review={review}></TestimonialCard>
+                            </motion.div>
+                        )}
 
-                    <Grid item xs={12} md={8} lg={4}>
-                        <TestimonialCard></TestimonialCard>
-                    </Grid>
-
-
-                </Grid>
+                    </motion.div>
+                </motion.div>
             </Container>
         </div>
     );

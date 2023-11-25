@@ -1,32 +1,43 @@
-import { Avatar, Card, CardContent, Typography } from "@mui/material";
+import { Avatar, Box, Card, CardContent, Typography } from "@mui/material";
 
 
 
 
-const TestimonialCard = () => {
+const TestimonialCard = ({ review }) => {
     return (
-        <div>
-            <Card sx={{ maxWidth: 345 }}>
-                <CardContent>
+        <div className="w-[360px] p-3">
+            <Card sx={{ color: 'white', bgcolor: '#032e4b' }}>
+                <CardContent sx={{ display: 'flex', flexDirection: "column", justifyContent: "space-around", height: "full" }}>
                     <Typography variant="h1" sx={{ fontFamily: "monospace", mb: -6 }}>“</Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                    <Typography variant="body2">
+                        {review.reviewDescription}
                     </Typography>
-                    <Avatar
-                        sx={{ width: 140, height: 140 }}
-                        src="https://i.ibb.co/5xh6vZp/person2.jpg"
-                        alt="green iguana"
-                    />
+                    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", py: '24px', gap: '20px' }}>
+                        <Avatar
+                            sx={{ width: 140, height: 140 }}
+                            src={review.reviewerImage}
+                            alt="green iguana"
+                        />
+                        <Box sx={{ flexGrow: 1, }}>
+                            <Typography gutterBottom variant="body2" component="div" color={'gray'}  >
+                                written by
+                            </Typography>
+                            <Typography gutterBottom variant="h5" component="div" >
+                                {review.reviewerName}
+                            </Typography>
+                        </Box>
+                    </Box>
 
-                    <Typography gutterBottom variant="h5" component="div">
-                        Lizard
+                    <Typography gutterBottom variant="body1" component="div" color={'gray'}  >
+                        Review for:
                     </Typography>
-
+                    <Typography gutterBottom variant="h6" component="div" color='secondary'  >
+                        {review.propertyTitle}
+                    </Typography>
                 </CardContent>
 
             </Card>
-        </div>
+        </div >
     );
 };
 
