@@ -23,7 +23,7 @@ const Testimonials = () => {
     return (
         <div>
             <Container maxWidth="lg">
-                <motion.div ref={carousel} className='carousel pb-14'>
+                <motion.div ref={carousel} className='carousel pb-14' whileTap={{ cursor: "grabbing" }}>
                     <motion.div
                         drag="x"
                         dragConstraints={{ right: 0, left: -width }}

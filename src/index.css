@@ -14,3 +14,10 @@
   cursor: grab;
   overflow: hidden;
 }
+
+.animate-gradient {
+  background-size: 300%;
+  -webkit-animation: animatedgradient 10s ease infinite alternate;
+  -moz-animation: animatedgradient 10s ease infinite alternate;
+  animation: animatedgradient 10s ease infinite alternate;
+}
