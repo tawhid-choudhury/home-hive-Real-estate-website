@@ -2,15 +2,28 @@
 
 import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import Swal from "sweetalert2";
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
+    const { user, logout } = useContext(AuthContext)
 
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
+
+    const handleLogout = () => {
+        logout()
+            .then(Swal.fire({
+                title: "Logged Out",
+                text: "You have been logged out",
+                icon: "success"
+            }))
+    }
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -107,22 +120,6 @@ const Navbar = () => {
                                         <NavLink style={{ color: '#727c82' }} to={'/dashboard'}>Dashboard</NavLink>
                                     </Typography>
                                 </MenuItem>
-                                <MenuItem onClick={handleCloseNavMenu}>
-                                    <Typography
-                                        textAlign="center"
-                                        style={{ color: "#b79537" }}
-                                    >
-                                        <NavLink style={{ color: '#727c82' }} to={'/login'}>login</NavLink>
-                                    </Typography>
-                                </MenuItem>
-                                <MenuItem onClick={handleCloseNavMenu}>
-                                    <Typography
-                                        textAlign="center"
-                                        style={{ color: "#b79537" }}
-                                    >
-                                        <NavLink style={{ color: '#727c82' }} to={'/signup'}>signup</NavLink>
-                                    </Typography>
-                                </MenuItem>
                             </Menu>
                         </Box>
 
@@ -151,11 +148,11 @@ const Navbar = () => {
                             <NavLink style={{ color: '#fff' }} to={'/dashboard'}>Dashboard</NavLink>
                         </Box>
 
-                        {false ?
+                        {user ?
                             <Box sx={{ flexGrow: 0 }}>
                                 <Tooltip title="Open settings">
                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                        <Avatar alt={user?.displayName} src={user?.photoURL} />
                                     </IconButton>
                                 </Tooltip>
                                 <Menu
@@ -174,19 +171,63 @@ const Navbar = () => {
                                     open={Boolean(anchorElUser)}
                                     onClose={handleCloseUserMenu}
                                 >
-                                    {settings.map((setting) => (
-                                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                            <Typography textAlign="center">{setting}</Typography>
-                                        </MenuItem>
-                                    ))}
+
+                                    <MenuItem onClick={handleCloseUserMenu}>
+                                        <Button onClick={handleLogout}>Log Out</Button>
+                                    </MenuItem>
+
                                 </Menu>
                             </Box>
                             :
-                            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: "center", gap: 1 }}>
-                                <Link to='/login'><Button sx={{ typography: { xs: 'body', md: 'body' } }} size="small" color="secondary" variant="contained"> Login</Button></Link>
-                                <p style={{ color: '#727c82' }}>or</p>
-                                <Link to='/signup'><Button sx={{ typography: { xs: 'body', md: 'body' } }} size="small" color="secondary" variant="outlined">Sign up</Button></Link>
-                            </Box>
+                            <div>
+                                <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: "center", gap: 1 }}>
+                                    <Link to='/login'><Button sx={{ typography: { xs: 'body', md: 'body' } }} size="small" color="secondary" variant="contained"> Login</Button></Link>
+                                    <p style={{ color: '#727c82' }}>or</p>
+                                    <Link to='/signup'><Button sx={{ typography: { xs: 'body', md: 'body' } }} size="small" color="secondary" variant="outlined">Sign up</Button></Link>
+                                </Box>
+                                <Box sx={{ display: { xs: 'flex', md: 'none' }, flexGrow: 0 }}>
+                                    <Tooltip title="Open settings">
+                                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                            <AccountCircleOutlinedIcon color="secondary" fontSize="large" />
+                                        </IconButton>
+                                    </Tooltip>
+                                    <Menu
+                                        sx={{ mt: '45px' }}
+                                        id="menu-appbar"
+                                        anchorEl={anchorElUser}
+                                        anchorOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        keepMounted
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        open={Boolean(anchorElUser)}
+                                        onClose={handleCloseUserMenu}
+                                    >
+
+                                        <MenuItem onClick={handleCloseUserMenu}>
+                                            <Typography
+                                                textAlign="center"
+                                                style={{ color: "#b79537" }}
+                                            >
+                                                <NavLink style={{ color: '#727c82' }} to={'/login'}>Login</NavLink>
+                                            </Typography>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseUserMenu}>
+                                            <Typography
+                                                textAlign="center"
+                                                style={{ color: "#b79537" }}
+                                            >
+                                                <NavLink style={{ color: '#727c82' }} to={'/signup'}>Sign Up</NavLink>
+                                            </Typography>
+                                        </MenuItem>
+
+                                    </Menu>
+                                </Box>
+                            </div>
                         }
                     </Toolbar>
                 </Container>

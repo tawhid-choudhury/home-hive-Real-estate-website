@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithRedirect, signOut, updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
+// import { getToken } from '../api/auth';
+import axiosSecure from '../api';
 // import useAxiosInstance from '../hooks/axios/useAxiosInstance';
 
 export const AuthContext = createContext(null)
@@ -15,7 +17,7 @@ const AuthProvider = ({ children }) => {
     // Google
     const googleSignin = () => {
         setLoading(true);
-        return signInWithPopup(auth, googleProvider);
+        return signInWithRedirect(auth, googleProvider);
     }
 
     // email registration
@@ -43,25 +45,24 @@ const AuthProvider = ({ children }) => {
     // track user login
     useEffect(() => {
         const uns = onAuthStateChanged(auth, (currentUser) => {
-            // const userEmail = currentUser?.email || user?.email;
-            // const loggedUser = { email: userEmail }
-            console.log(currentUser);
+            const userEmail = currentUser?.email || user?.email;
+            const loggedUser = { email: userEmail }
             setUser(currentUser);
             setLoading(false);
-            // if (currentUser) {
+            if (currentUser) {
 
-            //     axiosInstance.post("/jwt", loggedUser)
-            //         .then(res => {
-            //             console.log(res.data);
-            //         })
-            // } else {
-            //     axiosInstance.post('/logout', loggedUser).then(res => { res.data })
-            // }
+                axiosSecure.post("/jwt", loggedUser)
+                    .then(res => {
+                        console.log(res.data);
+                    })
+            } else {
+                axiosSecure.post('/logout', loggedUser).then(res => { res.data })
+            }
         });
         return () => {
             uns();
         }
-    }, [])
+    }, [user?.email])
 
     const p = { user, setUser, signUpEmailPass, loginEmailPass, logout, loading, setLoading, googleSignin, updateNamePhoto }
 
