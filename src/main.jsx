@@ -6,11 +6,14 @@ import {
 import "./index.css";
 import router from "./routes/Routes";
 import SiteTheme from "./utils/MuiTheme/MuiTheme";
+import AuthProvider from "./providers/AuthProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <SiteTheme>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </SiteTheme>
   </React.StrictMode>
 );

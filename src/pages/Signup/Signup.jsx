@@ -1,10 +1,13 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Alert, Avatar, Button, Card, CardActions, CardContent, Container, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from "@mui/material";
+import { Alert, Avatar, Button, Card, CardContent, Container, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import { motion } from "framer-motion"
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { imageUpload } from "../../api/utils";
+import { AuthContext } from "../../providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
@@ -30,6 +33,9 @@ const Signup = () => {
     const [image, setImage] = useState(null);
     const [imageOk, setImageOk] = useState(true);
     const [imagePreview, setImagePreview] = useState(null);
+
+    const { googleSignin, signUpEmailPass, updateNamePhoto, setLoading, user } = useContext(AuthContext);
+    const nav = useNavigate();
 
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
@@ -85,9 +91,17 @@ const Signup = () => {
             return
         }
 
-        console.log(name, password, email);
         console.log(image);
-
+        try {
+            const imageData = await imageUpload(image)
+            console.log(imageData);
+            const result = await signUpEmailPass(email, password)
+            console.log(result);
+            await updateNamePhoto(name, imageData?.data?.display_url)
+            console.log(result);
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     const [showPassword, setShowPassword] = useState(false);
