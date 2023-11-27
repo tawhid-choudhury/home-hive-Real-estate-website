@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithRedirect, signOut, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 // import { getToken } from '../api/auth';
 import axiosSecure from '../api';
@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
     // Google
     const googleSignin = () => {
         setLoading(true);
-        return signInWithRedirect(auth, googleProvider);
+        return signInWithPopup(auth, googleProvider);
     }
 
     // email registration

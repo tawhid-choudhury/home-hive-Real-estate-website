@@ -92,7 +92,7 @@ const Signup = () => {
                 text: "Account Created",
                 icon: "success"
             });
-            nav(location?.state ? location.state : "/");
+            nav(location?.state ? location.state : "/", { replace: true });
         } catch (err) {
             Swal.fire({
                 title: "Failed!",
@@ -140,7 +140,7 @@ const Signup = () => {
                 text: "Account Created",
                 icon: "success"
             });
-            nav(location?.state ? location.state : "/")
+            nav(location?.state ? location.state : "/", { replace: true })
         } catch (err) {
             if (err.code === "auth/email-already-in-use") {
                 Swal.fire({

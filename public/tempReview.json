@@ -1,25 +1,25 @@
 [
     {
       "reviewerName": "John Doe",
-      "reviewerImage": "https://i.ibb.co/xLgMpL7/person3.jpg",
+      "reviewerImage": "https://i.ibb.co/9g4qFgr/person3.jpg",
       "reviewDescription": "I had an amazing experience with this property! The amenities were top-notch, and the location is perfect.",
       "propertyTitle": "Luxury Condo with Ocean View"
     },
     {
       "reviewerName": "Jane Smith",
-      "reviewerImage": "https://i.ibb.co/0yP1YvD/person4.jpg",
+      "reviewerImage": "https://i.ibb.co/qFYd96q/person2.jpg",
       "reviewDescription": "The property exceeded my expectations. The interior design is stunning, and the staff is incredibly friendly.",
       "propertyTitle": "Modern Downtown Apartment"
     },
     {
       "reviewerName": "Mike Johnson",
-      "reviewerImage": "https://i.ibb.co/5cTJk8Q/expo.jpg",
+      "reviewerImage": "https://i.ibb.co/jk7q3s6/person4.jpg",
       "reviewDescription": "I fell in love with the spacious layout of this property. The panoramic windows offer breathtaking views of the city.",
       "propertyTitle": "Penthouse with City Skyline"
     },
     {
       "reviewerName": "Emily Davis",
-      "reviewerImage": "https://i.ibb.co/PwvC9Df/person1.jpg",
+      "reviewerImage": "https://i.ibb.co/D5HK8rS/person1.jpg",
       "reviewDescription": "A perfect blend of comfort and style. The property's location provides easy access to all the local hotspots.",
       "propertyTitle": "Cozy Suburban Retreat"
     }

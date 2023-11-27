@@ -7,7 +7,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 import { saveUser } from "../../api/auth";
-import axiosSecure from "../../api";
 
 
 
@@ -63,7 +62,7 @@ const Login = () => {
                 text: "Account Created",
                 icon: "success"
             });
-            nav(location?.state ? location.state : "/")
+            nav(location?.state ? location.state : "/", { replace: true })
         } catch (err) {
             setError(true);
             if (err?.message === "Firebase: Error (auth/invalid-login-credentials).") {
