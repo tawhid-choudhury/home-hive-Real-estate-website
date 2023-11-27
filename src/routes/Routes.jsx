@@ -6,7 +6,8 @@ import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Allproperties from "../pages/AllProperties/Allproperties";
-import { getVerified } from "../api/allpropertiesAPI";
+import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
+import { getPropertyDetails } from "../api/propertyDetailAPI";
 
 
 const router = createBrowserRouter([
@@ -24,10 +25,6 @@ const router = createBrowserRouter([
                 element: <Allproperties />,
             },
             {
-                path: '/dashboard',
-                element: <PrivateRoute><Dashboard /></PrivateRoute>,
-            },
-            {
                 path: '/login',
                 element: <Login />,
             },
@@ -35,8 +32,16 @@ const router = createBrowserRouter([
                 path: '/signup',
                 element: <Signup />,
             },
+            {
+                path: '/propertydetails/:id',
+                element: <PropertyDetails />,
+                loader: ({ params }) => getPropertyDetails(params.id),
+            },
         ]
-    }
+    }, {
+        path: '/dashboard',
+        element: <PrivateRoute><Dashboard /></PrivateRoute>,
+    },
 ])
 
 export default router;

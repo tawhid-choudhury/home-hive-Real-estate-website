@@ -7,7 +7,8 @@
     "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
     "verificationStatus": "Verified",
     "priceRange": "$500,000 - $600,000",
-    "featured": "true"
+    "featured": "true",
+    "description": "A stylish and modern apartment located in the heart of the city. Enjoy the convenience of urban living with this well-designed space."
   },
   {
     "propertyImage": "https://i.ibb.co/Mf3nGd9/r-architecture-Cn87-TISYij8-unsplash.jpg",
@@ -17,7 +18,8 @@
     "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
     "verificationStatus": "Verified",
     "priceRange": "$700,000 - $800,000",
-    "featured": "false"
+    "featured": "false",
+    "description": "A spacious suburban house with a large backyard, perfect for families. Enjoy the tranquility of suburban living while still being close to amenities."
   },
   {
     "propertyImage": "https://i.ibb.co/8M5b2kr/banner2.jpg",
@@ -27,7 +29,8 @@
     "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
     "verificationStatus": "Pending",
     "priceRange": "$1,200,000 - $1,500,000",
-    "featured": "true"
+    "featured": "true",
+    "description": "A luxurious waterfront villa with breathtaking views of the coast. This property offers a perfect blend of elegance and natural beauty."
   },
   {
     "propertyImage": "https://i.ibb.co/VSsnbSD/banner1.jpg",
@@ -37,7 +40,8 @@
     "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
     "verificationStatus": "Verified",
     "priceRange": "$300,000 - $400,000",
-    "featured": "false"
+    "featured": "false",
+    "description": "A charming countryside cottage surrounded by nature. Escape the hustle and bustle with this cozy retreat in the picturesque countryside."
   },
   {
     "propertyImage": "https://i.ibb.co/p0Dj7q1/r-architecture-KQgr-Vf-R3r74-unsplash.jpg",
@@ -47,7 +51,8 @@
     "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
     "verificationStatus": "Verified",
     "priceRange": "$500,000 - $600,000",
-    "featured": "true"
+    "featured": "true",
+    "description": "A stylish and modern apartment located in the heart of the city. Enjoy the convenience of urban living with this well-designed space."
   },
   {
     "propertyImage": "https://i.ibb.co/Mf3nGd9/r-architecture-Cn87-TISYij8-unsplash.jpg",
@@ -57,7 +62,8 @@
     "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
     "verificationStatus": "Verified",
     "priceRange": "$700,000 - $800,000",
-    "featured": "false"
+    "featured": "false",
+    "description": "A spacious suburban house with a large backyard, perfect for families. Enjoy the tranquility of suburban living while still being close to amenities."
   },
   {
     "propertyImage": "https://i.ibb.co/8M5b2kr/banner2.jpg",
@@ -67,7 +73,8 @@
     "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
     "verificationStatus": "Pending",
     "priceRange": "$1,200,000 - $1,500,000",
-    "featured": "true"
+    "featured": "true",
+    "description": "A luxurious waterfront villa with breathtaking views of the coast. This property offers a perfect blend of elegance and natural beauty."
   },
   {
     "propertyImage": "https://i.ibb.co/VSsnbSD/banner1.jpg",
@@ -77,6 +84,7 @@
     "agentImage": "https://i.ibb.co/dcmP4yC/4fa2df2ee8c1c569d7c005c912d392fb.jpg",
     "verificationStatus": "Verified",
     "priceRange": "$300,000 - $400,000",
-    "featured": "false"
+    "featured": "false",
+    "description": "A charming countryside cottage surrounded by nature. Escape the hustle and bustle with this cozy retreat in the picturesque countryside."
   }
 ]
