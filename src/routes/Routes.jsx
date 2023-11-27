@@ -4,6 +4,9 @@ import Home from "../pages/Home/Home";
 import Signup from "../pages/Signup/Signup";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../pages/Dashboard/Dashboard";
+import Allproperties from "../pages/AllProperties/Allproperties";
+import { getVerified } from "../api/allpropertiesAPI";
 
 
 const router = createBrowserRouter([
@@ -18,11 +21,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/all',
-                element: <h1>all properties</h1>,
+                element: <Allproperties />,
             },
             {
                 path: '/dashboard',
-                element: <PrivateRoute><h1>Dashboard</h1></PrivateRoute>,
+                element: <PrivateRoute><Dashboard /></PrivateRoute>,
             },
             {
                 path: '/login',

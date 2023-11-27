@@ -2,7 +2,7 @@
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className="mt-28">
 
         </div>
     );

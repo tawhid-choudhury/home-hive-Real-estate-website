@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 // import HomePageCards from "./HomePageCards";
 import HomePageCard from "./HomePageCard";
 import { Container, Grid } from "@mui/material";
+import { getFeatured } from "../../api/homeAPI";
 
 
 const AdvertisedProperties = () => {
@@ -9,8 +10,7 @@ const AdvertisedProperties = () => {
 
     //todo: remove with tenstack when database available
     useEffect(() => {
-        fetch("temp.json")
-            .then(res => res.json())
+        getFeatured()
             .then(data => setFeatured(data))
     }, [])
 
