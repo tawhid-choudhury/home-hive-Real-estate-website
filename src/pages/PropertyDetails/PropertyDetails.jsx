@@ -8,6 +8,8 @@ import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import { saveReviewtoDB } from '../../api/propertyDetailAPI';
+import Swal from 'sweetalert2';
 
 
 const PropertyDetails = () => {
@@ -25,14 +27,33 @@ const PropertyDetails = () => {
         setOpen(false);
     };
 
-    const handleAddReview = () => {
+    const handleAddReview = async () => {
         const reviewerName = user.displayName;
         const reviewerImage = user.photoURL;
         const propertyTitle = data.propertyTitle;
         const propertyId = data._id;
         const newReview = { reviewerName, reviewerImage, reviewDescription, propertyTitle, propertyId, }
-        console.log(newReview);
-        handleClose();
+        // console.log(newReview);
+        try {
+            const response = saveReviewtoDB(newReview)
+            console.log(response);
+            Swal.fire({
+                title: "Success!",
+                text: "Review Added",
+                icon: "success"
+            });
+        } catch (err) {
+            console.error(err);
+            Swal.fire({
+                title: "Failed!",
+                text: "Something went wrong",
+                icon: "error"
+            });
+        } finally {
+            handleClose();
+        }
+
+
     }
 
     return (
