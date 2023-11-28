@@ -1,15 +1,15 @@
 import { Container } from '@mui/material';
 import TestimonialCard from './TestimonialCard';
-import { useEffect, useRef, useState } from 'react';
-import { motion } from "framer-motion"
+import { useEffect, useState } from 'react';
+// import { motion } from "framer-motion"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+// import './styles.css';
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import { getHomeReviews } from '../../api/homeAPI';
 const Testimonials = () => {
     const [reviews, setReviews] = useState([])
-    const [width, setWidth] = useState(0);
-    const carousel = useRef();
-
-
-
 
     //todo: remove with tenstack when database available
     useEffect(() => {
@@ -17,27 +17,31 @@ const Testimonials = () => {
             .then(data => setReviews(data))
     }, [])
 
-    useEffect(() => {
-        setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
-    }, [reviews])
     return (
         <div>
             <Container maxWidth="lg">
-                <motion.div ref={carousel} className='carousel pb-14' whileTap={{ cursor: "grabbing" }}>
-                    <motion.div
-                        drag="x"
-                        dragConstraints={{ right: 0, left: -width }}
-                        className='inner-carousel'
-                    >
 
-                        {reviews.map((review, idx) =>
-                            <motion.div className='item' key={idx}>
-                                <TestimonialCard review={review}></TestimonialCard>
-                            </motion.div>
-                        )}
 
-                    </motion.div>
-                </motion.div>
+                <Swiper
+                    cssMode={true}
+                    navigation={true}
+                    mousewheel={true}
+                    keyboard={true}
+                    slidesPerView={3}
+                    spaceBetween={30}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+                    className="mySwiper"
+                >
+
+                    {reviews.map((review, idx) =>
+                        <SwiperSlide key={idx}>
+                            <TestimonialCard review={review}></TestimonialCard>
+                        </SwiperSlide>
+                    )}
+                </Swiper>
             </Container>
         </div>
     );
