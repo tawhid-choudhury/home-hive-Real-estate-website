@@ -11,7 +11,7 @@ const CustomerNavLinks = () => {
         <div>
 
             <div>
-                <NavLink to="/dashboard">
+                <NavLink to="/dashboard/profile">
                     <ListItem disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             sx={{

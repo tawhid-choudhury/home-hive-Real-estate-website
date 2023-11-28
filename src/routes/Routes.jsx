@@ -7,7 +7,8 @@ import PrivateRoute from "./PrivateRoute";
 import Allproperties from "../pages/AllProperties/Allproperties";
 import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
 import CustomerHome from "../pages/Dashboard/customer/CustomerHome";
-import DashboardLayout from "../layouts/DashboardLayout";
+import CustomerReviews from "../pages/Dashboard/customer/CustomerReviews";
+import DashboardNav from "../pages/Dashboard/DashBoardNav";
 
 
 const router = createBrowserRouter([
@@ -40,10 +41,10 @@ const router = createBrowserRouter([
         ]
     }, {
         path: '/dashboard',
-        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+        element: <PrivateRoute><DashboardNav /></PrivateRoute>,
         children: [
             {
-                path: "/dashboard/",
+                path: "profile",
                 element: <CustomerHome />
             },
             {
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboard/reviews",
-                element: <h1>My reviews</h1>
+                element: <CustomerReviews />
             },
 
         ]

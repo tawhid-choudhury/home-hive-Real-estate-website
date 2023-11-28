@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -24,6 +23,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import ViewCompactOutlinedIcon from '@mui/icons-material/ViewCompactOutlined';
 import CustomerNavLinks from './customer/CustomerNavLinks';
+import { Outlet } from "react-router-dom";
 
 
 
@@ -94,7 +94,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
-export default function DashboardNav({ children }) {
+export default function DashboardNav() {
     const { user, logout } = React.useContext(AuthContext)
     const theme = useTheme();
     const [open, setOpen] = React.useState(true);
@@ -235,12 +235,9 @@ export default function DashboardNav({ children }) {
             </Drawer>
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                 <DrawerHeader />
-                {children}
+                <Outlet></Outlet>
             </Box>
         </Box>
     );
 }
 
-DashboardNav.propTypes = {
-    children: PropTypes.node
-};

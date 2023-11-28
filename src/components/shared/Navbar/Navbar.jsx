@@ -117,7 +117,7 @@ const Navbar = () => {
                                         textAlign="center"
                                         style={{ color: "#b79537" }}
                                     >
-                                        <NavLink style={{ color: '#727c82' }} to={'/dashboard'}>Dashboard</NavLink>
+                                        <NavLink style={{ color: '#727c82' }} to={'/dashboard/profile'}>Dashboard</NavLink>
                                     </Typography>
                                 </MenuItem>
                             </Menu>
@@ -145,7 +145,7 @@ const Navbar = () => {
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', gap: 3 }}>
                             <NavLink style={{ color: '#fff' }} to={'/'}>Home</NavLink>
                             <NavLink style={{ color: '#fff' }} to={'/all'}>All properties</NavLink>
-                            <NavLink style={{ color: '#fff' }} to={'/dashboard'}>Dashboard</NavLink>
+                            <NavLink style={{ color: '#fff' }} to={'/dashboard/profile'}>Dashboard</NavLink>
                         </Box>
 
                         {user ?

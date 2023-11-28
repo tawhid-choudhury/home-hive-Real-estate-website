@@ -30,10 +30,12 @@ const PropertyDetails = () => {
 
     const handleAddReview = async () => {
         const reviewerName = user.displayName;
+        const reviewerEmail = user.email;
         const reviewerImage = user.photoURL;
         const propertyTitle = data.propertyTitle;
+        const agentName = data.agentName
         const propertyId = data._id;
-        const newReview = { reviewerName, reviewerImage, reviewDescription, propertyTitle, propertyId, }
+        const newReview = { reviewerEmail, reviewerName, reviewerImage, reviewDescription, propertyTitle, propertyId, agentName }
         // console.log(newReview);
         try {
             const response = await saveReviewtoDB(newReview)
