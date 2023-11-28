@@ -65,7 +65,7 @@ const PropertyDetails = () => {
     }
 
     return (
-        <div className="">
+        <div className=" mt-10">
             <Heading title={data.propertyTitle} subtitle={data.propertyLocation}></Heading>
             <Container maxWidth="xl">
                 <Grid container spacing={2}>
@@ -136,9 +136,9 @@ const PropertyDetails = () => {
                     Reviews:{reviews.length}
                 </Typography>
                 {/* box for reviews */}
-                <Box sx={{ bgcolor: "#727c8220", minHeight: "150px", borderRadius: 2, my: 4 }}>
+                <Box sx={{ bgcolor: "#727c8220", minHeight: "100px", borderRadius: 2, my: 4 }}>
                     {!reviews.length ?
-                        <Typography sx={{ pt: 8, fontWeight: 300, display: "flex", alignItems: "center", justifyContent: "center" }} variant="h4">
+                        <Typography sx={{ pt: 4, fontWeight: 300, display: "flex", alignItems: "center", justifyContent: "center" }} variant="h4">
                             No Reviews
                         </Typography>
                         :

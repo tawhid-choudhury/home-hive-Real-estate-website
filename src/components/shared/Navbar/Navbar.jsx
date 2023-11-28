@@ -8,7 +8,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import Swal from "sweetalert2";
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext)
@@ -150,33 +150,41 @@ const Navbar = () => {
 
                         {user ?
                             <Box sx={{ flexGrow: 0 }}>
-                                <Tooltip title="Open settings">
-                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                        <Avatar alt={user?.displayName} src={user?.photoURL} />
-                                    </IconButton>
-                                </Tooltip>
-                                <Menu
-                                    sx={{ mt: '45px' }}
-                                    id="menu-appbar"
-                                    anchorEl={anchorElUser}
-                                    anchorOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    keepMounted
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    open={Boolean(anchorElUser)}
-                                    onClose={handleCloseUserMenu}
-                                >
+                                <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 2 }}>
+                                    <Button sx={{ display: { xs: 'none', md: 'flex' } }} size="small" color="secondary" variant="contained" onClick={handleLogout}>Log Out</Button>
+                                    <Avatar alt={user?.displayName} src={user?.photoURL} />
+                                </Box>
+                                <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                                    <Tooltip title="Open settings">
+                                        <IconButton onClick={handleOpenUserMenu} sx={{ pl: 2 }}>
+                                            <Avatar alt={user?.displayName} src={user?.photoURL} />
+                                        </IconButton>
+                                    </Tooltip>
+                                    <Menu
+                                        sx={{ mt: '45px' }}
+                                        id="menu-appbar"
+                                        anchorEl={anchorElUser}
+                                        anchorOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        keepMounted
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        open={Boolean(anchorElUser)}
+                                        onClose={handleCloseUserMenu}
+                                    >
 
-                                    <MenuItem onClick={handleCloseUserMenu}>
-                                        <Button onClick={handleLogout}>Log Out</Button>
-                                    </MenuItem>
+                                        <MenuItem onClick={handleCloseUserMenu}>
+                                            <Button onClick={handleLogout}>Log Out</Button>
+                                        </MenuItem>
 
-                                </Menu>
+                                    </Menu>
+
+                                </Box>
+
                             </Box>
                             :
                             <div>

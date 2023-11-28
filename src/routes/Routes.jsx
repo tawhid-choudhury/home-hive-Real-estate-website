@@ -4,10 +4,11 @@ import Home from "../pages/Home/Home";
 import Signup from "../pages/Signup/Signup";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
-import Dashboard from "../pages/Dashboard/Dashboard";
 import Allproperties from "../pages/AllProperties/Allproperties";
 import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
 import { getPropertyDetails } from "../api/propertyDetailAPI";
+import CustomerHome from "../pages/Dashboard/customer/CustomerHome";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 
 const router = createBrowserRouter([
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/all',
-                element: <Allproperties />,
+                element: <PrivateRoute><Allproperties /></PrivateRoute>,
             },
             {
                 path: '/login',
@@ -40,7 +41,26 @@ const router = createBrowserRouter([
         ]
     }, {
         path: '/dashboard',
-        element: <PrivateRoute><Dashboard /></PrivateRoute>,
+        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+        children: [
+            {
+                path: "/dashboard/",
+                element: <CustomerHome />
+            },
+            {
+                path: "/dashboard/wishlist",
+                element: <h1>Wishlist</h1>
+            },
+            {
+                path: "/dashboard/bought",
+                element: <h1>properties bought</h1>
+            },
+            {
+                path: "/dashboard/reviews",
+                element: <h1>My reviews</h1>
+            },
+
+        ]
     },
 ])
 
