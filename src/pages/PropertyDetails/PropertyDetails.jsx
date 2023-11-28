@@ -1,7 +1,7 @@
 // import { useLoaderData } from "react-router-dom";
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import { red } from '@mui/material/colors';
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Heading from "../../components/shared/TextStyles/Heading";
 import { Avatar, Box, Button, Card, CardActions, CardContent, CardMedia, Container, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Grid, TextField, Typography } from '@mui/material';
 import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
@@ -11,21 +11,30 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { getReviewForAProperty, saveReviewtoDB } from '../../api/propertyDetailAPI';
 import Swal from 'sweetalert2';
 import ReviewCard from './ReviewCard';
+import useGetPropertyById from '../../hooks/useGetPropertyById';
 
 
 const PropertyDetails = () => {
     // console.log("asdasd");
+    const { id } = useParams();
     const { user } = useContext(AuthContext);
-    const data = useLoaderData();
+    // const data = useLoaderData();
     const [reviews, setReviews] = useState([]);
 
     const [open, setOpen] = useState(false);
     const [reviewDescription, setReviewDescription] = useState("");
 
-    useEffect(() => {
-        getReviewForAProperty(data._id)
-            .then(data => setReviews(data))
-    }, [])
+    const { isPending, error, data, refetch } = useGetPropertyById(id)
+
+    // useEffect(() => {
+    //     getReviewForAProperty(data._id)
+    //         .then(data => setReviews(data))
+    // }, [])
+
+
+    if (isPending) return 'Loading...'
+
+    if (error) return 'An error has occurred: ' + error.message
 
     const handleClickOpen = () => {
         setOpen(true);

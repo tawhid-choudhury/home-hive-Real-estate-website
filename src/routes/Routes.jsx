@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: '/propertydetails/:id',
                 element: <PrivateRoute><PropertyDetails /></PrivateRoute>,
-                loader: ({ params }) => getPropertyDetails(params.id),
+                // loader: ({ params }) => getPropertyDetails(params.id),
             },
         ]
     }, {
