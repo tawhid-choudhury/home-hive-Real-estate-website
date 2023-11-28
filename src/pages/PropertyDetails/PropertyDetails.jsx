@@ -1,48 +1,32 @@
 // import { useLoaderData } from "react-router-dom";
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import { red } from '@mui/material/colors';
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Heading from "../../components/shared/TextStyles/Heading";
 import { Avatar, Box, Button, Card, CardActions, CardContent, CardMedia, Container, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Grid, TextField, Typography } from '@mui/material';
 import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-import { getReviewForAProperty, saveReviewtoDB } from '../../api/propertyDetailAPI';
+import { saveReviewtoDB } from '../../api/propertyDetailAPI';
 import Swal from 'sweetalert2';
 import ReviewCard from './ReviewCard';
 import useGetPropertyById from '../../hooks/useGetPropertyById';
+import useGetReviewsForProperty from '../../hooks/useGetReviewsForProperty';
+import { useMutation } from '@tanstack/react-query';
 
 
 const PropertyDetails = () => {
-    // console.log("asdasd");
     const { id } = useParams();
     const { user } = useContext(AuthContext);
-    // const data = useLoaderData();
-    const [reviews, setReviews] = useState([]);
 
     const [open, setOpen] = useState(false);
     const [reviewDescription, setReviewDescription] = useState("");
 
-    const { isPending, error, data, refetch } = useGetPropertyById(id)
+    const { isPending, error, data } = useGetPropertyById(id)
 
-    // useEffect(() => {
-    //     getReviewForAProperty(data._id)
-    //         .then(data => setReviews(data))
-    // }, [])
+    const { reviewpending, reviews, reviewRefetch } = useGetReviewsForProperty(id);
 
-
-    if (isPending) return 'Loading...'
-
-    if (error) return 'An error has occurred: ' + error.message
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
 
     const handleAddReview = async () => {
         const reviewerName = user.displayName;
@@ -52,13 +36,16 @@ const PropertyDetails = () => {
         const newReview = { reviewerName, reviewerImage, reviewDescription, propertyTitle, propertyId, }
         // console.log(newReview);
         try {
-            const response = saveReviewtoDB(newReview)
+            const response = await saveReviewtoDB(newReview)
             console.log(response);
             Swal.fire({
                 title: "Success!",
                 text: "Review Added",
                 icon: "success"
             });
+            if (response) {
+                reviewRefetch();
+            }
         } catch (err) {
             console.error(err);
             Swal.fire({
@@ -72,6 +59,25 @@ const PropertyDetails = () => {
 
 
     }
+
+    const { mutateAsync } = useMutation({
+        mutationFn: handleAddReview
+    })
+
+    if (isPending) return 'Loading...'
+
+    if (error) return 'An error has occurred: ' + error.message
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
+
 
     return (
         <div className=" mt-10">
@@ -142,17 +148,17 @@ const PropertyDetails = () => {
                     </Grid>
                 </Grid>
                 <Typography sx={{ pt: 8, fontWeight: 300 }} variant="h3">
-                    Reviews:{reviews.length}
+                    Reviews:{reviews?.length}
                 </Typography>
                 {/* box for reviews */}
                 <Box sx={{ bgcolor: "#727c8220", minHeight: "100px", borderRadius: 2, my: 4 }}>
-                    {!reviews.length ?
+                    {!reviews?.length ?
                         <Typography sx={{ pt: 4, fontWeight: 300, display: "flex", alignItems: "center", justifyContent: "center" }} variant="h4">
-                            No Reviews
+                            {reviewpending ? <>loading... </> : <>No reviews</>}
                         </Typography>
                         :
                         <Box>
-                            {reviews.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)}
+                            {reviews?.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)}
                         </Box>
                     }
                 </Box>
@@ -194,7 +200,9 @@ const PropertyDetails = () => {
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleClose}>Cancel</Button>
-                        <Button variant='contained' onClick={handleAddReview}>Add Review</Button>
+                        <Button variant='contained' onClick={async () => {
+                            await mutateAsync()
+                        }}>Add Review</Button>
                     </DialogActions>
                 </Dialog>
 
