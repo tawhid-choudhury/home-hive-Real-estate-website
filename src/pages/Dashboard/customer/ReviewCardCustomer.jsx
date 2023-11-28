@@ -1,18 +1,12 @@
-import { Avatar, Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import { useMutation } from '@tanstack/react-query';
 import PropTypes from 'prop-types';
 import { deleteReview } from '../../../api/customerDashboardAPI';
 import Swal from 'sweetalert2';
+import { getTime } from '../../../api/utils';
 // import { getTimeAgo } from '../../../api/utils';
 
 const ReviewCardCustomer = ({ review, reviewRefetch }) => {
-
-    const getTime = (timestamp) => {
-        const date = new Date(timestamp);
-        const localTime = date.toLocaleString();
-        console.log(localTime);
-        return localTime;
-    }
 
     const { mutate } = useMutation({
         mutationFn: () => {
@@ -40,14 +34,14 @@ const ReviewCardCustomer = ({ review, reviewRefetch }) => {
                                 } else {
                                     Swal.fire({
                                         title: "Error!",
-                                        text: "Could not delete deleted.",
+                                        text: "Could not delete file.",
                                         icon: "error"
                                     })
                                 }
                             })
                 }
             });
-            deleteReview(review._id)
+            // deleteReview(review._id)
         }
     })
 
@@ -83,6 +77,7 @@ const ReviewCardCustomer = ({ review, reviewRefetch }) => {
 
 ReviewCardCustomer.propTypes = {
     review: PropTypes.object,
+    reviewRefetch: PropTypes.func,
 };
 
 export default ReviewCardCustomer;

@@ -1,22 +1,20 @@
 
 import { useQuery } from '@tanstack/react-query';
-import { getUserRole } from '../api/customerDashboardAPI';
+import { getwishlist } from '../api/customerDashboardAPI';
 
-
-const useGetUserRole = (email) => {
+const useGetReviewFromUser = (email) => {
     console.log(email);
     const { isPending, error, data, refetch } = useQuery({
-        queryKey: ["userData", email],
+        queryKey: ["wishlist", email],
         queryFn: () =>
-            getUserRole(email).then(
+            getwishlist(email).then(
                 (res) => {
-                    console.log(res);
                     return (res)
                 }
             ),
     })
-    console.log(data);
+
     return ({ isPending, error, data, refetch });
 };
 
-export default useGetUserRole;
+export default useGetReviewFromUser;

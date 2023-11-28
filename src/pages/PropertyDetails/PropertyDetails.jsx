@@ -8,7 +8,7 @@ import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-import { saveReviewtoDB } from '../../api/propertyDetailAPI';
+import { saveReviewtoDB, saveToWishlistDB } from '../../api/propertyDetailAPI';
 import Swal from 'sweetalert2';
 import ReviewCard from './ReviewCard';
 import useGetPropertyById from '../../hooks/useGetPropertyById';
@@ -64,6 +64,29 @@ const PropertyDetails = () => {
 
     const { mutateAsync } = useMutation({
         mutationFn: handleAddReview
+    })
+
+    const { mutate: handleAddWishlist } = useMutation({
+        mutationFn: () => {
+            const buyerEmail = user.email;
+            const { _id, propertyImage, propertyTitle, propertyLocation, agentName, agentImage, priceRange, verificationStatus } = data;
+            saveToWishlistDB({ propertyId: _id, propertyImage, propertyTitle, propertyLocation, agentName, agentImage, priceRange, verificationStatus, buyerEmail })
+                .then(res => {
+                    if (res.insertedId) {
+                        Swal.fire({
+                            title: "Success!",
+                            text: "Review Added",
+                            icon: "success"
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "Error!",
+                            text: "Failed",
+                            icon: "error"
+                        });
+                    }
+                })
+        }
     })
 
     if (isPending) return 'Loading...'
@@ -144,7 +167,7 @@ const PropertyDetails = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button size="medium" startIcon={<FavoriteIcon />} variant='contained' fullWidth> Add to wishlist</Button>
+                                <Button onClick={handleAddWishlist} size="medium" startIcon={<FavoriteIcon />} variant='contained' fullWidth> Add to wishlist</Button>
                             </CardActions>
                         </Card>
                     </Grid>

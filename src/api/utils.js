@@ -34,3 +34,10 @@ export const getTimeAgo = (timestamp) => {
 
   return timeAgo;
 };
+
+export const getTime = (timestamp) => {
+  const date = new Date(timestamp);
+  const localTime = date.toLocaleString();
+  console.log(localTime);
+  return localTime;
+};

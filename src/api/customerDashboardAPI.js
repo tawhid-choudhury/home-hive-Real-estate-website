@@ -15,3 +15,13 @@ export const deleteReview = async (id) => {
   const { data } = await axiosSecure.delete(`/allreviews/${id}`);
   return data;
 };
+
+export const getwishlist = async (email) => {
+  const { data } = await axiosSecure(`/wishlist?email=${email}`);
+  return data;
+};
+
+export const deleteWishlist = async (id) => {
+  const { data } = await axiosSecure.delete(`/wishlist/${id}`);
+  return data;
+};

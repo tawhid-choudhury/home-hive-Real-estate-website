@@ -9,6 +9,8 @@ import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
 import CustomerHome from "../pages/Dashboard/customer/CustomerHome";
 import CustomerReviews from "../pages/Dashboard/customer/CustomerReviews";
 import DashboardNav from "../pages/Dashboard/DashBoardNav";
+import CustomerWishlist from "../pages/Dashboard/customer/CustomerWishlist";
+import MakeOffer from "../pages/Dashboard/customer/MakeOffer";
 
 
 const router = createBrowserRouter([
@@ -49,7 +51,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboard/wishlist",
-                element: <h1>Wishlist</h1>
+                element: <CustomerWishlist />
+            },
+            {
+                path: "/dashboard/makeOffer/:id",
+                element: <MakeOffer />
             },
             {
                 path: "/dashboard/bought",
