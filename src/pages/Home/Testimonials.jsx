@@ -2,6 +2,7 @@ import { Container } from '@mui/material';
 import TestimonialCard from './TestimonialCard';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from "framer-motion"
+import { getHomeReviews } from '../../api/homeAPI';
 const Testimonials = () => {
     const [reviews, setReviews] = useState([])
     const [width, setWidth] = useState(0);
@@ -12,8 +13,7 @@ const Testimonials = () => {
 
     //todo: remove with tenstack when database available
     useEffect(() => {
-        fetch("tempReview.json")
-            .then(res => res.json())
+        getHomeReviews()
             .then(data => setReviews(data))
     }, [])
 

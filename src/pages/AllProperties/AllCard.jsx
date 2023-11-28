@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
+import { Link } from 'react-router-dom';
 
 const AllCard = ({ property }) => {
     return (
@@ -39,7 +40,7 @@ const AllCard = ({ property }) => {
                             </Typography>
                         </Box>
                         <CardActions>
-                            <Button color='secondary' size="large" variant='outlined' sx={{ fontWeight: 600 }}>Details</Button>
+                            <Link to={`/propertydetails/${property._id}`}><Button color='secondary' size="large" variant='outlined' sx={{ fontWeight: 600 }}>Details</Button></Link>
                         </CardActions>
                     </Box>
 

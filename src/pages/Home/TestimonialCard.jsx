@@ -1,20 +1,21 @@
 import { Avatar, Box, Card, CardContent, Typography } from "@mui/material";
 import PropTypes from 'prop-types';
+import { getTimeAgo } from "../../api/utils";
 
 
 
 const TestimonialCard = ({ review }) => {
     return (
-        <div className="w-[320px] p-3">
-            <Card sx={{ color: 'white', bgcolor: '#b79537' }}>
-                <CardContent sx={{ display: 'flex', flexDirection: "column", justifyContent: "space-around", height: "full" }}>
-                    <Typography variant="h1" sx={{ fontFamily: "monospace", mb: -6 }}>“</Typography>
+        <div className="w-[320px] h-[440px] p-3">
+            <Card sx={{ color: 'white', bgcolor: '#b79537', height: "100%" }}>
+                <CardContent sx={{ height: "100%", display: 'flex', flexDirection: "column", justifyContent: "space-between" }}>
+                    <Typography variant="h1" sx={{ flexGrow: 1, fontFamily: "monospace", mb: -6 }}>“</Typography>
                     <Typography variant="body2">
                         {review.reviewDescription}
                     </Typography>
                     <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", py: '24px', gap: '20px' }}>
                         <Avatar
-                            sx={{ width: 140, height: 140 }}
+                            sx={{ width: 120, height: 120 }}
                             src={review.reviewerImage}
                             alt="green iguana"
                         />
@@ -33,6 +34,10 @@ const TestimonialCard = ({ review }) => {
                     </Typography>
                     <Typography gutterBottom variant="subtitle2" component="div" color="primary"  >
                         {review.propertyTitle}
+                    </Typography>
+
+                    <Typography gutterBottom variant="subtitle2" component="div" color="primary"  >
+                        {getTimeAgo(review.timestamp)}
                     </Typography>
                 </CardContent>
 

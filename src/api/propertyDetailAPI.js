@@ -6,8 +6,13 @@ export const getPropertyDetails = async (id) => {
 };
 
 export const saveReviewtoDB = async (newReview) => {
-  console.log(newReview);
+  console.log("ht");
   const { data } = await axiosSecure.post("/addreview", newReview);
+  return data;
+};
 
+export const getReviewForAProperty = async (id) => {
+  console.log("jidt");
+  const { data } = await axiosSecure(`/allreviews?propertyId=${id}`);
   return data;
 };

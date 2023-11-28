@@ -6,18 +6,26 @@ import Heading from "../../components/shared/TextStyles/Heading";
 import { Avatar, Box, Button, Card, CardActions, CardContent, CardMedia, Container, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Grid, TextField, Typography } from '@mui/material';
 import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-import { saveReviewtoDB } from '../../api/propertyDetailAPI';
+import { getReviewForAProperty, saveReviewtoDB } from '../../api/propertyDetailAPI';
 import Swal from 'sweetalert2';
+import ReviewCard from './ReviewCard';
 
 
 const PropertyDetails = () => {
+    // console.log("asdasd");
     const { user } = useContext(AuthContext);
     const data = useLoaderData();
+    const [reviews, setReviews] = useState([]);
 
     const [open, setOpen] = useState(false);
     const [reviewDescription, setReviewDescription] = useState("");
+
+    useEffect(() => {
+        getReviewForAProperty(data._id)
+            .then(data => setReviews(data))
+    }, [])
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -57,7 +65,7 @@ const PropertyDetails = () => {
     }
 
     return (
-        <div className="mt-12">
+        <div className="">
             <Heading title={data.propertyTitle} subtitle={data.propertyLocation}></Heading>
             <Container maxWidth="xl">
                 <Grid container spacing={2}>
@@ -71,8 +79,8 @@ const PropertyDetails = () => {
                                     alt="Paella dish"
                                 />
                                 {data.verificationStatus === 'Verified' &&
-                                    <span className='rounded-full px-4 py-2'
-                                        style={{ position: "absolute", top: "5px", right: "5px", color: 'white', backgroundColor: 'green', fontSize: 'large', display: "flex", alignItems: 'center' }}>
+                                    <span className=''
+                                        style={{ position: "absolute", top: "5px", right: "5px", color: 'white', backgroundColor: 'green', fontSize: 'large', padding: "2px 8px", borderRadius: "20px", display: "flex", alignItems: 'center' }}>
                                         <TaskAltOutlinedIcon fontSize='small' />
                                         verified
                                     </span>}
@@ -89,7 +97,7 @@ const PropertyDetails = () => {
                                     {data.propertyTitle}
                                 </Typography>
                                 <Typography sx={{ mb: 1.5 }} color="gray">
-                                    <span className='flex items-center  gap-2'><PlaceOutlinedIcon /> {data.propertyLocation}</span>
+                                    <span className=''><PlaceOutlinedIcon /> {data.propertyLocation}</span>
                                 </Typography>
                                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
                                     {data.description}
@@ -101,7 +109,6 @@ const PropertyDetails = () => {
 
                                     <Avatar
                                         sx={{ bgcolor: red[500], width: 56, height: 56 }}
-
                                         src={data.agentImage}
                                     />
 
@@ -116,7 +123,7 @@ const PropertyDetails = () => {
                                     </Box>
                                 </Box>
                                 <Typography sx={{ mt: 1.5 }} color="text.secondary">
-                                    <span className='font-bold'>Price Range:</span>  {data.priceRange}
+                                    <span className=''>Price Range:</span>  {data.priceRange}
                                 </Typography>
                             </CardContent>
                             <CardActions>
@@ -126,11 +133,19 @@ const PropertyDetails = () => {
                     </Grid>
                 </Grid>
                 <Typography sx={{ pt: 8, fontWeight: 300 }} variant="h3">
-                    Reviews:
+                    Reviews:{reviews.length}
                 </Typography>
                 {/* box for reviews */}
-                <Box>
-
+                <Box sx={{ bgcolor: "#727c8220", minHeight: "150px", borderRadius: 2, my: 4 }}>
+                    {!reviews.length ?
+                        <Typography sx={{ pt: 8, fontWeight: 300, display: "flex", alignItems: "center", justifyContent: "center" }} variant="h4">
+                            No Reviews
+                        </Typography>
+                        :
+                        <Box>
+                            {reviews.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)}
+                        </Box>
+                    }
                 </Box>
                 <Button variant="outlined" onClick={handleClickOpen}>
                     Add a review
