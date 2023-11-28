@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 // import './styles.css';
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import { getHomeReviews } from '../../api/homeAPI';
 const Testimonials = () => {
     const [reviews, setReviews] = useState([])
@@ -23,16 +23,27 @@ const Testimonials = () => {
 
 
                 <Swiper
-                    cssMode={true}
-                    navigation={true}
-                    mousewheel={true}
-                    keyboard={true}
-                    slidesPerView={3}
-                    spaceBetween={30}
+                    slidesPerView={1}
+                    spaceBetween={10}
+                    grabCursor={true}
                     pagination={{
                         clickable: true,
                     }}
-                    modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 40,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 50,
+                        },
+                    }}
+                    modules={[Pagination]}
                     className="mySwiper"
                 >
 

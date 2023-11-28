@@ -6,7 +6,7 @@ import { getTimeAgo } from "../../api/utils";
 
 const TestimonialCard = ({ review }) => {
     return (
-        <div className="w-[320px] h-[440px] p-3 mb-8">
+        <div className=" h-[440px] p-3 mb-8">
             <Card sx={{ color: '', border: 2, borderColor: '#032e4b', height: "100%" }}>
                 <CardContent sx={{ height: "100%", display: 'flex', flexDirection: "column", justifyContent: "space-between" }}>
                     <Typography variant="h1" sx={{ flexGrow: 1, fontFamily: "monospace", mb: -6 }}>“</Typography>
