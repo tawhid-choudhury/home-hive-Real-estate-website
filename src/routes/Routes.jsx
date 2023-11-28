@@ -6,7 +6,6 @@ import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import Allproperties from "../pages/AllProperties/Allproperties";
 import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
-import { getPropertyDetails } from "../api/propertyDetailAPI";
 import CustomerHome from "../pages/Dashboard/customer/CustomerHome";
 import DashboardLayout from "../layouts/DashboardLayout";
 
