@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { getwishlist } from '../api/customerDashboardAPI';
 
-const useGetReviewFromUser = (email) => {
+const useGetWishlist = (email) => {
     console.log(email);
     const { isPending, error, data, refetch } = useQuery({
         queryKey: ["wishlist", email],
@@ -17,4 +17,4 @@ const useGetReviewFromUser = (email) => {
     return ({ isPending, error, data, refetch });
 };
 
-export default useGetReviewFromUser;
+export default useGetWishlist;

@@ -17,6 +17,7 @@ import AgentAddProperty from "../pages/Dashboard/agent/AgentAddProperty";
 import AgentAddedProperties from "../pages/Dashboard/agent/AgentAddedProperties";
 import AgentSoldProperties from "../pages/Dashboard/agent/AgentSoldProperties";
 import AgentRequestedProperties from "../pages/Dashboard/agent/AgentRequestedProperties";
+import AgentUpdateProperty from "../pages/Dashboard/agent/AgentUpdateProperty";
 
 
 const router = createBrowserRouter([
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/requests",
                 element: <AgentRequestedProperties />
+            },
+            {
+                path: "/dashboard/update/:id",
+                element: <AgentUpdateProperty />
             },
 
         ]

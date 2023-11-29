@@ -1,20 +1,22 @@
 
 import { useQuery } from '@tanstack/react-query';
-import { getBoughtlist } from '../api/customerDashboardAPI';
+import { getPropertiesFromAgent } from '../api/agentDashboardApi';
 
-const useGetBoughtlist = (email) => {
+
+const useGetPropertiesFromAgent = (email) => {
     console.log(email);
     const { isPending, error, data, refetch } = useQuery({
-        queryKey: ["boughtList", email],
+        queryKey: ["userData", email],
         queryFn: () =>
-            getBoughtlist(email).then(
+            getPropertiesFromAgent(email).then(
                 (res) => {
+                    console.log(res);
                     return (res)
                 }
             ),
     })
-
+    console.log(data);
     return ({ isPending, error, data, refetch });
 };
 
-export default useGetBoughtlist;
+export default useGetPropertiesFromAgent;

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { getHomeReviews } from '../api/homeAPI';
 
-const useGetFeatured = () => {
+const useGetHomeReviews = () => {
     console.log();
     const { isPending, error, data, refetch } = useQuery({
         queryKey: ["home reviews 1233321123"],
@@ -21,4 +21,4 @@ const useGetFeatured = () => {
     return ({ reviews, reviewsPending, reviewsError, reviewsRefetch });
 };
 
-export default useGetFeatured;
+export default useGetHomeReviews;
