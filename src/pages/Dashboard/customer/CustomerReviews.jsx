@@ -15,6 +15,9 @@ const CustomerReviews = () => {
     if (reviewerror) return 'An error has occurred: ' + reviewerror.message
     return (
         <div>
+            <Typography sx={{ mb: 4, fontWeight: 300 }} variant='h4' color="gray" >
+                My Reviews
+            </Typography>
             {!reviews?.length ?
                 <Typography sx={{ pt: 4, fontWeight: 300, display: "flex", alignItems: "center", justifyContent: "center" }} variant="h4">
                     {reviewpending ? <>loading... </> : <>No reviews</>}

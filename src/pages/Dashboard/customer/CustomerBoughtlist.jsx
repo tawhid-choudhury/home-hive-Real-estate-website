@@ -15,6 +15,9 @@ const CustomerBoughtlist = () => {
     if (error) return 'An error has occurred: ' + error.message
     return (
         <div>
+            <Typography sx={{ mb: 4, fontWeight: 300 }} variant='h4' color="gray" >
+                My Bought Properties
+            </Typography>
             {!data?.length ?
                 <Typography sx={{ pt: 4, fontWeight: 300, display: "flex", alignItems: "center", justifyContent: "center" }} variant="h4">
                     {isPending ? <>loading... </> : <>No data</>}

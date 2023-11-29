@@ -13,6 +13,10 @@ import MakeOffer from "../pages/Dashboard/customer/MakeOffer";
 import CustomerBoughtlist from "../pages/Dashboard/customer/CustomerBoughtlist";
 import Profile from "../pages/Dashboard/customer/Profile";
 import PaymentPage from "../pages/Dashboard/customer/PaymentPage";
+import AgentAddProperty from "../pages/Dashboard/agent/AgentAddProperty";
+import AgentAddedProperties from "../pages/Dashboard/agent/AgentAddedProperties";
+import AgentSoldProperties from "../pages/Dashboard/agent/AgentSoldProperties";
+import AgentRequestedProperties from "../pages/Dashboard/agent/AgentRequestedProperties";
 
 
 const router = createBrowserRouter([
@@ -51,6 +55,8 @@ const router = createBrowserRouter([
                 path: "profile",
                 element: <Profile />
             },
+
+            // customer links
             {
                 path: "/dashboard/wishlist",
                 element: <CustomerWishlist />
@@ -70,6 +76,24 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/payment/:id",
                 element: <PaymentPage />
+            },
+
+            // agentlinks
+            {
+                path: "/dashboard/addproperty",
+                element: <AgentAddProperty />
+            },
+            {
+                path: "/dashboard/myproperties",
+                element: <AgentAddedProperties />
+            },
+            {
+                path: "/dashboard/soldproperties",
+                element: <AgentSoldProperties />
+            },
+            {
+                path: "/dashboard/requests",
+                element: <AgentRequestedProperties />
             },
 
         ]

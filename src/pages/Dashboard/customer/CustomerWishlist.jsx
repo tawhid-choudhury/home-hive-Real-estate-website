@@ -15,6 +15,9 @@ const CustomerWishlist = () => {
 
     return (
         <div>
+            <Typography sx={{ mb: 4, fontWeight: 300 }} variant='h4' color="gray" >
+                Wishlist
+            </Typography>
             {!data?.length ?
                 <Typography sx={{ pt: 4, fontWeight: 300, display: "flex", alignItems: "center", justifyContent: "center" }} variant="h4">
                     {isPending ? <>loading... </> : <>No data</>}

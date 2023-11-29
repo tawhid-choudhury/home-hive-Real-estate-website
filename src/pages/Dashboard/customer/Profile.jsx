@@ -16,7 +16,10 @@ const Profile = () => {
     if (error) return 'An error has occurred: ' + error.message
     return (
         <div>
-            <Container sx={{ minHeight: "90vh", display: 'flex', flexDirection: "column", justifyContent: "center", alignItems: "center" }} maxWidth="lg">
+            <Typography sx={{ mb: 4, fontWeight: 300 }} variant='h4' color="gray" >
+                Profile
+            </Typography>
+            <Container sx={{ minHeight: "80vh", display: 'flex', flexDirection: "column", justifyContent: "center", alignItems: "center" }} maxWidth="lg">
                 <Avatar
                     alt={user?.displayName}
                     src={user?.photoURL}

@@ -24,6 +24,8 @@ import Swal from 'sweetalert2';
 import ViewCompactOutlinedIcon from '@mui/icons-material/ViewCompactOutlined';
 import CustomerNavLinks from './customer/CustomerNavLinks';
 import { Outlet } from "react-router-dom";
+import useGetUserRole from '../../hooks/useGetUserRole';
+import AgentNavLinks from './agent/agentNavLinks';
 
 
 
@@ -98,6 +100,8 @@ export default function DashboardNav() {
     const { user, logout } = React.useContext(AuthContext)
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    const { data } = useGetUserRole(user?.email)
+    const role = data?.role;
 
     const handleLogout = () => {
         logout()
@@ -175,8 +179,8 @@ export default function DashboardNav() {
                 <Divider />
                 <List>
 
-                    <CustomerNavLinks />
-
+                    {role === "customer" && <CustomerNavLinks />}
+                    {role === "agent" && <AgentNavLinks />}
 
 
                 </List>
