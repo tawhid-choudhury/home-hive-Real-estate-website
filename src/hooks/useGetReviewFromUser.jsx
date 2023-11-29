@@ -5,7 +5,7 @@ import { getReviewfromUser } from '../api/customerDashboardAPI';
 const useGetReviewFromUser = (email) => {
     console.log(email);
     const { isPending, error, data, refetch } = useQuery({
-        queryKey: ["review", email],
+        queryKey: ["reviewasdadas", email],
         queryFn: () =>
             getReviewfromUser(email).then(
                 (res) => {

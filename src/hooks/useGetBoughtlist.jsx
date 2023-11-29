@@ -5,7 +5,7 @@ import { getBoughtlist } from '../api/customerDashboardAPI';
 const useGetBoughtlist = (email) => {
     console.log(email);
     const { isPending, error, data, refetch } = useQuery({
-        queryKey: ["boughtList", email],
+        queryKey: ["boughtListzxcwqeasdasd", email],
         queryFn: () =>
             getBoughtlist(email).then(
                 (res) => {

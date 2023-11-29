@@ -5,7 +5,7 @@ import { getPaymentDetails } from '../api/customerDashboardAPI';
 const useGetPaymentDetailById = (orderId) => {
     // console.log(propertyId);
     const { isPending, error, data, refetch } = useQuery({
-        queryKey: [orderId],
+        queryKey: ["asdasdasdasdasd", orderId],
         queryFn: () =>
             getPaymentDetails(orderId).then(
                 (res) => {

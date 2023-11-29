@@ -5,7 +5,7 @@ import { getReviewForAProperty } from '../api/propertyDetailAPI';
 const useGetReviewsForProperty = (propertyId) => {
     console.log(propertyId);
     const { isPending, error, data, refetch } = useQuery({
-        queryKey: ["review", propertyId],
+        queryKey: ["reviewzxcasdzawgnmk", propertyId],
         queryFn: () =>
             getReviewForAProperty(propertyId).then(
                 (res) => {

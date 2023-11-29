@@ -6,7 +6,7 @@ import { getUserRole } from '../api/customerDashboardAPI';
 const useGetUserRole = (email) => {
     console.log(email);
     const { isPending, error, data, refetch } = useQuery({
-        queryKey: ["userData", email],
+        queryKey: ["userDataasdasd", email],
         queryFn: () =>
             getUserRole(email).then(
                 (res) => {

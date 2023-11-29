@@ -5,7 +5,7 @@ import { getPropertyDetails } from '../api/propertyDetailAPI';
 const useGetPropertyById = (propertyId) => {
     // console.log(propertyId);
     const { isPending, error, data, refetch } = useQuery({
-        queryKey: [propertyId],
+        queryKey: ["zxcdadwxcza", propertyId],
         queryFn: () =>
             getPropertyDetails(propertyId).then(
                 (res) => {

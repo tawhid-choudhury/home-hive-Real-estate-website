@@ -7,6 +7,8 @@ import { imageUpload } from "../../../api/utils";
 import { useMutation } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import useGetPropertyById from "../../../hooks/useGetPropertyById";
+import axiosSecure from "../../../api";
+
 
 const AgentUpdateProperty = () => {
     const { id } = useParams();
@@ -74,20 +76,20 @@ const AgentUpdateProperty = () => {
                 const imageData = await imageUpload(propertyImage);
 
                 const UpdatedProperty = { propertyImage: imageData?.data?.display_url, propertyTitle, propertyLocation, verificationStatus, priceRange, featured, description, priceMin, priceMax }
-                console.log(UpdatedProperty);
+                // console.log(UpdatedProperty);
 
-                // const res = await saveToPropertiesDB(UpdatedProperty);
-                // console.log(res);
-                // if (res?.insertedId) {
-                //     Swal.fire({
-                //         title: "Success!",
-                //         text: "Property Added",
-                //         icon: "success"
-                //     });
-                // }
+                const res = await axiosSecure.patch(`/updateProperty/${id}`, UpdatedProperty);
+                console.log(res);
+                refetch();
+                Swal.fire({
+                    title: "Success!",
+                    text: "Property Added",
+                    icon: "success"
+                });
 
 
             } catch (err) {
+                console.log(err);
                 Swal.fire({
                     title: "Failed!",
                     text: `${err?.message}`,

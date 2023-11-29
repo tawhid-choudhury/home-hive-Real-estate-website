@@ -3,7 +3,6 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import { Box, Typography } from "@mui/material";
 
 import useGetPropertiesFromAgent from "../../../hooks/useGetPropertiesFromAgent";
-import WishlistCard from "../customer/WishlistCard";
 import AgentPropertiesCard from "./AgentPropertiesCard";
 
 

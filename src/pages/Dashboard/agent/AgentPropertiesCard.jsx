@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { Avatar, Box, Typography, Button } from '@mui/material';
 import { getTime } from '../../../api/utils';
 import { useMutation } from '@tanstack/react-query';
-import { deleteWishlist } from '../../../api/customerDashboardAPI';
 import Swal from 'sweetalert2';
 import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
 import { Link } from 'react-router-dom';
+import { deleteProperty } from '../../../api/agentDashboardApi';
 
 
 
@@ -24,25 +24,25 @@ const AgentPropertiesCard = ({ item, refetch }) => {
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // deleteWishlist(item._id)
-                    //     .then(
-                    // res => {
-                    //     console.log(res);
-                    //     refetch();
-                    //     if (res.acknowledged) {
-                    //         Swal.fire({
-                    //             title: "Removed!",
-                    //             text: "Your file has been Removed.",
-                    //             icon: "success"
-                    //         })
-                    //     } else {
-                    //         Swal.fire({
-                    //             title: "Error!",
-                    //             text: "Could not remove file.",
-                    //             icon: "error"
-                    //         })
-                    //     }
-                    // })
+                    deleteProperty(item._id)
+                        .then(
+                            res => {
+                                console.log(res);
+                                refetch();
+                                if (res.acknowledged) {
+                                    Swal.fire({
+                                        title: "Removed!",
+                                        text: "Your file has been Removed.",
+                                        icon: "success"
+                                    })
+                                } else {
+                                    Swal.fire({
+                                        title: "Error!",
+                                        text: "Could not remove file.",
+                                        icon: "error"
+                                    })
+                                }
+                            })
                 }
             });
         }

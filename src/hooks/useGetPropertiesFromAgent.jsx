@@ -6,7 +6,7 @@ import { getPropertiesFromAgent } from '../api/agentDashboardApi';
 const useGetPropertiesFromAgent = (email) => {
     console.log(email);
     const { isPending, error, data, refetch } = useQuery({
-        queryKey: ["userData", email],
+        queryKey: ["userDataxzczxczxc", email],
         queryFn: () =>
             getPropertiesFromAgent(email).then(
                 (res) => {
