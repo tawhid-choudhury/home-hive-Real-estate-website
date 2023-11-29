@@ -25,3 +25,8 @@ export const deleteWishlist = async (id) => {
   const { data } = await axiosSecure.delete(`/wishlist/${id}`);
   return data;
 };
+
+export const saveToBoughtDB = async (newProperty) => {
+  const { data } = await axiosSecure.post("/bought", newProperty);
+  return data;
+};
