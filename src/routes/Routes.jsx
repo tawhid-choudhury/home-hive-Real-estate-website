@@ -6,11 +6,13 @@ import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import Allproperties from "../pages/AllProperties/Allproperties";
 import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
-import CustomerHome from "../pages/Dashboard/customer/CustomerHome";
 import CustomerReviews from "../pages/Dashboard/customer/CustomerReviews";
 import DashboardNav from "../pages/Dashboard/DashBoardNav";
 import CustomerWishlist from "../pages/Dashboard/customer/CustomerWishlist";
 import MakeOffer from "../pages/Dashboard/customer/MakeOffer";
+import CustomerBoughtlist from "../pages/Dashboard/customer/CustomerBoughtlist";
+import Profile from "../pages/Dashboard/customer/Profile";
+import PaymentPage from "../pages/Dashboard/customer/PaymentPage";
 
 
 const router = createBrowserRouter([
@@ -47,7 +49,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "profile",
-                element: <CustomerHome />
+                element: <Profile />
             },
             {
                 path: "/dashboard/wishlist",
@@ -59,11 +61,15 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboard/bought",
-                element: <h1>properties bought</h1>
+                element: <CustomerBoughtlist />
             },
             {
                 path: "/dashboard/reviews",
                 element: <CustomerReviews />
+            },
+            {
+                path: "/dashboard/payment/:id",
+                element: <PaymentPage />
             },
 
         ]

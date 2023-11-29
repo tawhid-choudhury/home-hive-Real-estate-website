@@ -93,7 +93,7 @@ const WishlistCard = ({ item, refetch }) => {
                     </Typography>
 
                     <Typography sx={{ mt: 4 }} variant='body2'>
-                        Posted on: {getTime(item?.timestamp)}
+                        Added on: {getTime(item?.timestamp)}
                     </Typography>
                 </Box>
                 <Box>

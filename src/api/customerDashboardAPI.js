@@ -26,7 +26,17 @@ export const deleteWishlist = async (id) => {
   return data;
 };
 
+export const getBoughtlist = async (email) => {
+  const { data } = await axiosSecure(`/bought?email=${email}`);
+  return data;
+};
+
 export const saveToBoughtDB = async (newProperty) => {
   const { data } = await axiosSecure.post("/bought", newProperty);
+  return data;
+};
+
+export const getPaymentDetails = async (id) => {
+  const { data } = await axiosSecure(`/payment/${id}`);
   return data;
 };
