@@ -5,7 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-const CustomerHome = () => {
+const Profile = () => {
     const { user } = useContext(AuthContext)
     const { isPending, error, data } = useGetUserRole(user.email)
     console.log(data);
@@ -36,4 +36,4 @@ const CustomerHome = () => {
     );
 };
 
-export default CustomerHome;
+export default Profile;

@@ -69,8 +69,8 @@ const PropertyDetails = () => {
     const { mutate: handleAddWishlist } = useMutation({
         mutationFn: () => {
             const buyerEmail = user.email;
-            const { _id, propertyImage, propertyTitle, propertyLocation, agentName, agentImage, priceRange, verificationStatus } = data;
-            saveToWishlistDB({ propertyId: _id, propertyImage, propertyTitle, propertyLocation, agentName, agentImage, priceRange, verificationStatus, buyerEmail })
+            const { _id, propertyImage, propertyTitle, propertyLocation, agentName, agentEmail, agentImage, priceRange, verificationStatus } = data;
+            saveToWishlistDB({ propertyId: _id, propertyImage, propertyTitle, propertyLocation, agentName, agentEmail, agentImage, priceRange, verificationStatus, buyerEmail })
                 .then(res => {
                     if (res.insertedId) {
                         Swal.fire({

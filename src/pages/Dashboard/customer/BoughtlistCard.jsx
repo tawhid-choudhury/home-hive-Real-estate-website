@@ -36,6 +36,12 @@ const BoughtlistCard = ({ item }) => {
                 </Box>
                 <Box>
                     {item?.status === "accepted" && <Link to={`/dashboard/payment/${item._id}`}><Button sx={{ my: 2 }} variant='contained' color='primary' > Go to Payment  </Button></Link>}
+                    {item?.transactionId &&
+                        <Typography sx={{ mt: 4 }} variant='body2'>
+                            TransactionId: {item?.transactionId}
+                        </Typography>
+
+                    }
                     <br />
                     <Typography sx={{ mt: 4, textAlign: "center", fontWeight: "700" }} variant='subtitle1'>
                         Status {item?.status}

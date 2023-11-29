@@ -18,7 +18,7 @@ const PaymentPage = () => {
         <div>
 
             <div>
-                <Container maxWidth="md">
+                <Container maxWidth="lg">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm />
                     </Elements>

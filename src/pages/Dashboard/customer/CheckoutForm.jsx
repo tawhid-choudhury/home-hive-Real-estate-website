@@ -22,8 +22,8 @@ const CheckoutForm = () => {
         if (amount > 0) {
             axiosSecure.post('/create-payment-intent', { price: amount })
                 .then(res => {
-                    console.log(res.data.clientSecret);
-                    setClientSecret(res.data.clientSecret);
+                    console.log(res.data?.clientSecret);
+                    setClientSecret(res.data?.clientSecret);
                 })
         }
 
@@ -84,7 +84,7 @@ const CheckoutForm = () => {
 
                 const res = await axiosSecure.patch(`/bought/${data._id}`, payment);
                 console.log('payment saved', res.data);
-                if (transactionId) {
+                if (res.data?.modifiedCount) {
                     Swal.fire({
                         title: "Payment Done",
                         text: `${transactionId}`,

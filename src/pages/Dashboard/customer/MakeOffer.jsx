@@ -30,6 +30,7 @@ const MakeOffer = () => {
             const propertyTitle = data.propertyTitle;
             const propertyImage = data.propertyImage;
             const agentName = data.agentName;
+            const agentEmail = data.agentEmail;
             const offeredAmount = parseInt(amount);
             if (offeredAmount < data.priceMin) {
                 console.log(offeredAmount);
@@ -45,7 +46,7 @@ const MakeOffer = () => {
             const status = "pending";
             const buyerEmail = user.email;
             const buyerName = user.displayName;
-            const newBought = { date, propertyId, propertyLocation, propertyTitle, propertyImage, agentName, offeredAmount, status, buyerEmail, buyerName }
+            const newBought = { offerDate: date, agentEmail, propertyId, propertyLocation, propertyTitle, propertyImage, agentName, offeredAmount, status, buyerEmail, buyerName }
             saveToBoughtDB(newBought)
                 .then(res => {
                     if (res.insertedId) {
