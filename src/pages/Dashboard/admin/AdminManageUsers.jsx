@@ -1,6 +1,4 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
-import useGetAllProperties from "../../../hooks/useGetAllProperties";
-import AllPropertiesTableRow from "./AllPropertiesTableRow";
 import useGetAllUsers from "../../../hooks/useGetAllUsers";
 import AllUsersCard from "./AllUsersCard";
 

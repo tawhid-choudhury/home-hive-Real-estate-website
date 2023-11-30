@@ -5,16 +5,24 @@ import axiosSecure from '../../../api';
 import Swal from 'sweetalert2';
 
 
-const AllPropertiesTableRow = ({ item, refetch }) => {
+const SelectAddCard = ({ item, refetch, totalFeatureds }) => {
 
-    const { mutateAsync: handleReject } = useMutation({
-        mutationFn: async () => {
+    const { mutateAsync: modifyAd } = useMutation({
+        mutationFn: async (ft) => {
+            if (totalFeatureds >= 6) {
+                Swal.fire({
+                    title: "Error!",
+                    text: `All slots full`,
+                    icon: "error"
+                });
+                return;
+            }
             try {
-                const verificationStatus = "rejected";
-                const updatedProperty = { verificationStatus }
+                const featured = ft;
+                const updatedProperty = { featured }
                 // console.log(UpdatedProperty);
 
-                const res = await axiosSecure.patch(`/verifyProperty/${item._id}`, updatedProperty);
+                const res = await axiosSecure.patch(`/editAds/${item._id}`, updatedProperty);
                 console.log(res);
                 refetch();
                 Swal.fire({
@@ -35,19 +43,27 @@ const AllPropertiesTableRow = ({ item, refetch }) => {
         }
     })
 
-    const { mutateAsync: handleAccept } = useMutation({
-        mutationFn: async () => {
+    const { mutateAsync: modifyAdremove } = useMutation({
+        mutationFn: async (ft) => {
+            // if (totalFeatureds >= 6) {
+            //     Swal.fire({
+            //         title: "Error!",
+            //         text: `All slots full`,
+            //         icon: "error"
+            //     });
+            //     return;
+            // }
             try {
-                const verificationStatus = "Verified";
-                const updatedProperty = { verificationStatus }
+                const featured = ft;
+                const updatedProperty = { featured }
                 // console.log(UpdatedProperty);
 
-                const res = await axiosSecure.patch(`/verifyProperty/${item._id}`, updatedProperty);
-                console.log(res)
+                const res = await axiosSecure.patch(`/editAds/${item._id}`, updatedProperty);
+                console.log(res);
                 refetch();
                 Swal.fire({
                     title: "Success!",
-                    text: "Property Verified",
+                    text: "Property rejected",
                     icon: "success"
                 });
 
@@ -64,6 +80,8 @@ const AllPropertiesTableRow = ({ item, refetch }) => {
     })
 
 
+
+
     return (
         <TableRow>
             <TableCell>{item?.propertyTitle}</TableCell>
@@ -73,16 +91,14 @@ const AllPropertiesTableRow = ({ item, refetch }) => {
             <TableCell>{item?.priceRange}</TableCell>
             <TableCell>{item?.featured}</TableCell>
             <TableCell>
-                {item?.verificationStatus !== "Pending" ?
+                {item?.featured === "true" ?
                     <>
-                        {item?.verificationStatus === "Verified" && <p style={{ color: "green" }}>{item?.verificationStatus}</p>}
-                        {item?.verificationStatus === "rejected" && <p style={{ color: "red" }}>{item?.verificationStatus}</p>}
+                        <Button onClick={() => modifyAdremove("false")} sx={{ m: 2, width: 100, bgcolor: "firebrick" }} variant='contained'>Remove</Button>
                     </>
 
                     :
                     <div>
-                        <Button onClick={handleAccept} sx={{ m: 2, width: 100, bgcolor: "green" }} variant='contained'>Verify</Button>
-                        <Button onClick={handleReject} sx={{ m: 2, width: 100, bgcolor: "firebrick" }} variant='contained'>Reject</Button>
+                        <Button onClick={() => modifyAd("true")} sx={{ m: 2, width: 100, bgcolor: "green" }} variant='contained'>Advertise</Button>
                     </div>
                 }
             </TableCell>
@@ -90,9 +106,10 @@ const AllPropertiesTableRow = ({ item, refetch }) => {
     );
 };
 
-AllPropertiesTableRow.propTypes = {
+SelectAddCard.propTypes = {
     item: PropTypes.object,
-    refetch: PropTypes.func
+    refetch: PropTypes.func,
+    totalFeatureds: PropTypes.number
 };
 
-export default AllPropertiesTableRow;
+export default SelectAddCard;
