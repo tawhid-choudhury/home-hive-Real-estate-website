@@ -11,10 +11,10 @@ const AllPropertiesTableRow = ({ item, refetch }) => {
         mutationFn: async () => {
             try {
                 const verificationStatus = "rejected";
-                const UpdatedProperty = { verificationStatus }
+                const updatedProperty = { verificationStatus }
                 // console.log(UpdatedProperty);
 
-                const res = await axiosSecure.patch(`/verifyProperty/${item._id}`, UpdatedProperty);
+                const res = await axiosSecure.patch(`/verifyProperty/${item._id}`, updatedProperty);
                 console.log(res);
                 refetch();
                 Swal.fire({
@@ -39,10 +39,10 @@ const AllPropertiesTableRow = ({ item, refetch }) => {
         mutationFn: async () => {
             try {
                 const verificationStatus = "Verified";
-                const UpdatedProperty = { verificationStatus }
+                const updatedProperty = { verificationStatus }
                 // console.log(UpdatedProperty);
 
-                const res = await axiosSecure.patch(`/verifyProperty/${item._id}`, UpdatedProperty);
+                const res = await axiosSecure.patch(`/verifyProperty/${item._id}`, updatedProperty);
                 console.log(res)
                 refetch();
                 Swal.fire({

@@ -8,7 +8,7 @@ const AgentSoldProperties = () => {
     const { user } = useContext(AuthContext)
     const { isPending, error, data, refetch } = useGetAgentSold(user.email);
 
-    const totalSold = data.reduce((total, item) => total + item.offeredAmount, 0)
+    const totalSold = data?.reduce((total, item) => total + item.offeredAmount, 0)
 
     if (isPending) return 'Loading...'
 

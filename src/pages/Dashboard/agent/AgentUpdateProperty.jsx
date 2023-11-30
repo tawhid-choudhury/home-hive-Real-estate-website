@@ -75,10 +75,10 @@ const AgentUpdateProperty = () => {
 
                 const imageData = await imageUpload(propertyImage);
 
-                const UpdatedProperty = { propertyImage: imageData?.data?.display_url, propertyTitle, propertyLocation, verificationStatus, priceRange, featured, description, priceMin, priceMax }
+                const updatedProperty = { propertyImage: imageData?.data?.display_url, propertyTitle, propertyLocation, verificationStatus, priceRange, featured, description, priceMin, priceMax }
                 // console.log(UpdatedProperty);
 
-                const res = await axiosSecure.patch(`/updateProperty/${id}`, UpdatedProperty);
+                const res = await axiosSecure.patch(`/updateProperty/${id}`, updatedProperty);
                 console.log(res);
                 refetch();
                 Swal.fire({
