@@ -9,3 +9,8 @@ export const getHomeReviews = async () => {
   const { data } = await axiosSecure("/homepageReviews");
   return data;
 };
+
+export const getAgents = async () => {
+  const { data } = await axiosSecure("/agents?role=agent");
+  return data;
+};

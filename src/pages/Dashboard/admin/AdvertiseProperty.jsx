@@ -1,5 +1,4 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
-import AllPropertiesTableRow from "./AllPropertiesTableRow";
 import useGetVerified from "../../../hooks/useGetVerified";
 import SelectAddCard from "./SelectAddCard";
 

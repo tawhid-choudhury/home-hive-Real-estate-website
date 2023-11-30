@@ -1,6 +1,8 @@
 import Heading from "../../components/shared/TextStyles/Heading";
 import AdvertisedProperties from "./AdvertisedProperties";
 import Banner from "./Banner";
+import Faq from "./Faq";
+import Newsletter from "./Newsletter";
 import Testimonials from "./Testimonials";
 
 const Home = () => {
@@ -11,6 +13,8 @@ const Home = () => {
             <AdvertisedProperties />
             <Heading title={"Lastest Reviews"} subtitle={"Discover What Our Clients Say: Real Stories, Real Satisfaction."} />
             <Testimonials />
+            <Newsletter />
+            <Faq />
         </div >
     );
 };
