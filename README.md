@@ -1,8 +1,14 @@
-# React + Vite
+### LiveLink: https://homehive-84c83.web.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## **HomeHive**
 
-Currently, two official plugins are available:
+Final Assignment:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- This is my final project. here I have used Mui to design the front-end
+- Backend was built using nodejs and express
+- for security this website uses jwt web tokens
+- this is a real estate website which has three roles. eg. admin, agent, customer.
+- this website uses axios and tanstack for CRUD operations and Fetching operations
+- uses stripe for payment
+- backend is hosted on vercel
+- front end is hosted on firebase
