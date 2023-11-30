@@ -25,7 +25,7 @@ const MakeOffer = () => {
     const { mutate: handleAddToBought } = useMutation({
         mutationFn: (e) => {
             e.preventDefault();
-            const propertyId = data.propertyId;
+            const propertyId = data._id;
             const propertyLocation = data.propertyLocation;
             const propertyTitle = data.propertyTitle;
             const propertyImage = data.propertyImage;
@@ -77,7 +77,7 @@ const MakeOffer = () => {
                     <Box sx={{ p: 2, mb: 4, borderRadius: 2 }}>
                         <Box>
                             <Typography sx={{ mb: 4, fontWeight: 300 }} variant='h4' color="gray" >
-                                Make an Offer:
+                                Make an Offer: ({data?._id})
                             </Typography>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} md={12}>
