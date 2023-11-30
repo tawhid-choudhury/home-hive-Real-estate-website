@@ -26,6 +26,7 @@ import CustomerNavLinks from './customer/CustomerNavLinks';
 import { Outlet } from "react-router-dom";
 import useGetUserRole from '../../hooks/useGetUserRole';
 import AgentNavLinks from './agent/agentNavLinks';
+import AdminNavlinks from './admin/AdminNavlinks';
 
 
 
@@ -181,6 +182,7 @@ export default function DashboardNav() {
 
                     {role === "customer" && <CustomerNavLinks />}
                     {role === "agent" && <AgentNavLinks />}
+                    {role === "admin" && <AdminNavlinks />}
 
 
                 </List>

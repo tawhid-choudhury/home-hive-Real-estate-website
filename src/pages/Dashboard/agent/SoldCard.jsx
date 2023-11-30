@@ -2,7 +2,7 @@ import { TableCell, TableRow } from '@mui/material';
 import PropTypes from 'prop-types';
 
 
-const SoldCard = ({ item, refetch }) => {
+const SoldCard = ({ item }) => {
 
     return (
         <TableRow>

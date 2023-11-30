@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
-import useGetAgentBoughtlistRequests from "../../../hooks/useGetAgentBoughtlistRequests";
-import RequestCard from "./RequestCard";
 import SoldCard from "./SoldCard";
 import useGetAgentSold from "../../../hooks/useGetAgentSold";
 

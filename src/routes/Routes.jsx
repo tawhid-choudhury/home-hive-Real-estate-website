@@ -18,6 +18,10 @@ import AgentAddedProperties from "../pages/Dashboard/agent/AgentAddedProperties"
 import AgentSoldProperties from "../pages/Dashboard/agent/AgentSoldProperties";
 import AgentRequestedProperties from "../pages/Dashboard/agent/AgentRequestedProperties";
 import AgentUpdateProperty from "../pages/Dashboard/agent/AgentUpdateProperty";
+import AdminManageProperties from "../pages/Dashboard/admin/AdminManageProperties";
+import AdminManageUsers from "../pages/Dashboard/admin/AdminManageUsers";
+import AdminManageReviews from "../pages/Dashboard/admin/AdminManageReviews";
+import AdvertiseProperty from "../pages/Dashboard/admin/AdvertiseProperty";
 
 
 const router = createBrowserRouter([
@@ -99,6 +103,24 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/update/:id",
                 element: <AgentUpdateProperty />
+            },
+
+            // admin links
+            {
+                path: "/dashboard/manageproperties",
+                element: <AdminManageProperties />
+            },
+            {
+                path: "/dashboard/manageusers",
+                element: <AdminManageUsers />
+            },
+            {
+                path: "/dashboard/managereviews",
+                element: <AdminManageReviews />
+            },
+            {
+                path: "/dashboard/advertise",
+                element: <AdvertiseProperty />
             },
 
         ]
