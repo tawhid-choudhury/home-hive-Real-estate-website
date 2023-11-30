@@ -1,10 +1,11 @@
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+import { Avatar, Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import { motion } from "framer-motion"
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import { Link } from 'react-router-dom';
+import { red } from '@mui/material/colors';
 
 const AllCard = ({ property }) => {
     return (
@@ -38,6 +39,27 @@ const AllCard = ({ property }) => {
                             <Typography variant="subtitle1" color="secondary" sx={{ display: "flex", alignItems: 'center', fontWeight: 600 }}>
                                 <MonetizationOnOutlinedIcon fontSize='medium' /> &nbsp; {property.priceRange}
                             </Typography>
+                            <Box sx={{ display: 'flex', alignItems: "center", justifyContent: "start", gap: 2 }}>
+
+
+                                <Avatar
+                                    sx={{ bgcolor: red[500], width: 40, height: 40 }}
+                                    src={property?.agentImage}
+                                />
+
+
+                                <Box>
+                                    <Typography sx={{}} color="gray">
+                                        Added by
+                                    </Typography>
+                                    <Typography variant="subtitle1" color="secondary" sx={{ display: "flex", alignItems: 'center', fontWeight: 600 }}>
+                                        {property?.agentName}
+                                    </Typography>
+                                    <Typography variant="subtitle1" color="secondary" sx={{ display: "flex", alignItems: 'center', fontWeight: 600 }}>
+                                        {property?.agentEmail}
+                                    </Typography>
+                                </Box>
+                            </Box>
                         </Box>
                         <CardActions>
                             <Link to={`/propertydetails/${property._id}`}><Button color='secondary' size="large" variant='outlined' sx={{ fontWeight: 600 }}>Details</Button></Link>
