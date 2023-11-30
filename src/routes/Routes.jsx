@@ -22,13 +22,14 @@ import AdminManageProperties from "../pages/Dashboard/admin/AdminManagePropertie
 import AdminManageUsers from "../pages/Dashboard/admin/AdminManageUsers";
 import AdminManageReviews from "../pages/Dashboard/admin/AdminManageReviews";
 import AdvertiseProperty from "../pages/Dashboard/admin/AdvertiseProperty";
+import ErrorPage from "../components/shared/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
-        errorElement: <h1>ErrorPage </h1>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
