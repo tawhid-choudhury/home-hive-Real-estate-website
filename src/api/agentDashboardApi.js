@@ -19,3 +19,10 @@ export const getAgentBoughtlistRequests = async (email) => {
   const { data } = await axiosSecure(`/bought?agentEmail=${email}`);
   return data;
 };
+
+export const getAgentSoldList = async (email) => {
+  const { data } = await axiosSecure(
+    `/bought?agentEmail=${email}&status=bought`
+  );
+  return data;
+};
