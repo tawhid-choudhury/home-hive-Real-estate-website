@@ -14,3 +14,8 @@ export const deleteProperty = async (id) => {
   const { data } = await axiosSecure.delete(`/allproperty/${id}`);
   return data;
 };
+
+export const getAgentBoughtlistRequests = async (email) => {
+  const { data } = await axiosSecure(`/bought?agentEmail=${email}`);
+  return data;
+};

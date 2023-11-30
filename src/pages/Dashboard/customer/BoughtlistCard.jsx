@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 const BoughtlistCard = ({ item }) => {
     return (
         <div>
-            <Box sx={{ p: 2, border: 1, mb: 4, borderRadius: 2, borderColor: "gray", display: 'flex', alignItems: 'center', justifyContent: "space-between", gap: 2, }}>
-                <Box sx={{ position: "relative", overflow: "hidden", width: "480px", height: "300px", bgcolor: "blanchedalmond" }}>
+            <Box sx={{ p: 2, border: 1, mb: 4, borderRadius: 2, borderColor: "gray", display: { xs: "block", md: 'flex' }, alignItems: 'center', justifyContent: "space-between", gap: 2, }}>
+                <Box sx={{ position: "relative", overflow: "hidden", maxWidth: "480px", maxHeight: "300px", bgcolor: "blanchedalmond" }}>
                     <img src={item?.propertyImage} alt="" />
                 </Box>
 

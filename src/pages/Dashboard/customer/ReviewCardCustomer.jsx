@@ -51,7 +51,7 @@ const ReviewCardCustomer = ({ review, reviewRefetch }) => {
             <Typography variant='subtitle2' color="gray" >
                 Review written for: <span style={{ color: "black", fontSize: '18px' }}>{review?.propertyTitle}</span>
             </Typography>
-            <Box sx={{ p: 2, border: 1, mb: 4, borderRadius: 2, borderColor: "gray", display: 'flex', alignItems: 'center', justifyContent: "space-between", gap: 2, }}>
+            <Box sx={{ p: 2, border: 1, mb: 4, borderRadius: 2, borderColor: "gray", display: { xs: "block", md: 'flex' }, alignItems: 'center', justifyContent: "space-between", gap: 2, }}>
                 <Box>
                     <Typography variant='subtitle2' color="gray" >
                         Description:
