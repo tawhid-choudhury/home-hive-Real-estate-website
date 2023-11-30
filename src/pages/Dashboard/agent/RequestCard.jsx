@@ -74,7 +74,13 @@ const RequestCard = ({ item, refetch }) => {
             <TableCell>{item?.buyerName}</TableCell>
             <TableCell>{item?.offeredAmount}</TableCell>
             <TableCell>
-                {item?.status !== "pending" ? <p>{item?.status}</p>
+                {item?.status !== "pending" ?
+                    <>
+                        {item?.status === "accepted" && <p style={{ color: "green" }}>{item?.status}</p>}
+                        {item?.status === "rejected" && <p style={{ color: "red" }}>{item?.status}</p>}
+                        {item?.status === "bought" && <p style={{ color: "blue" }}>{item?.status}</p>}
+                    </>
+
                     :
                     <div>
                         <Button onClick={handleAccept} sx={{ m: 2, width: 100, bgcolor: "green" }} variant='contained'>Accept</Button>

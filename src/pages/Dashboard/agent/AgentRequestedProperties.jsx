@@ -22,6 +22,7 @@ const AgentRequestedProperties = () => {
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>
+                            <TableCell>Property ID</TableCell>
                             <TableCell>Property title</TableCell>
                             <TableCell>Property Location</TableCell>
                             <TableCell>Buyer Email</TableCell>
