@@ -27,7 +27,7 @@ Welcome to HomeHive, your one-stop destination for a seamless and modern real es
 1. Clone the repository: `git clone https://github.com/your-username/HomeHive.git`
 2. Navigate to the project directory: `cd HomeHive`
 3. Install dependencies: `npm install`
-4. Run the project locally: `npm start`
+4. Run the project locally: `npm run dev`
 
 ### Backend Repository:
 
