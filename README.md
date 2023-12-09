@@ -37,10 +37,6 @@ Explore the [Backend Repository](https://github.com/tawhid-choudhury/home-hive-R
 
 Contributions are welcome! Feel free to submit issues or pull requests to enhance HomeHive further.
 
-### License:
-
-This project is licensed under the [MIT License](LICENSE).
-
 ### Acknowledgments:
 
 I appreciate your interest in HomeHive. Feel free to explore the LiveLink and experience the future of real estate!
