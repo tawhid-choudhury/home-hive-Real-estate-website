@@ -6,6 +6,22 @@
 
 Welcome to HomeHive, your one-stop destination for a seamless and modern real estate experience. This project serves as my final assignment, incorporating cutting-edge technologies to create a feature-rich platform.
 
+### Technologies Used:
+
+- **Front-end:**
+  - Vite
+  - React
+  - React-router-dom
+  - Material UI
+  - Tailwind CSS
+  - Framer Motion
+
+- **Back-end:**
+  - Node.js
+  - Express
+  - JWT (JSON Web Tokens)
+  - Stripe
+
 ### Features:
 
 - **Mui Design:** The front-end is meticulously crafted using Material-UI for an elegant and user-friendly interface.
@@ -27,7 +43,7 @@ Welcome to HomeHive, your one-stop destination for a seamless and modern real es
 1. Clone the repository: `git clone https://github.com/your-username/HomeHive.git`
 2. Navigate to the project directory: `cd HomeHive`
 3. Install dependencies: `npm install`
-4. Run the project locally: `npm run dev`
+4. Run the project locally: `npm start`
 
 ### Backend Repository:
 
@@ -36,6 +52,10 @@ Explore the [Backend Repository](https://github.com/tawhid-choudhury/home-hive-R
 ### Contributing:
 
 Contributions are welcome! Feel free to submit issues or pull requests to enhance HomeHive further.
+
+### License:
+
+This project is licensed under the [MIT License](LICENSE).
 
 ### Acknowledgments:
 
