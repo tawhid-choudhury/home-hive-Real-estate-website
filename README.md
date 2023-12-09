@@ -40,10 +40,10 @@ Welcome to HomeHive, your one-stop destination for a seamless and modern real es
 
 ### How to Run Locally:
 
-1. Clone the repository: `git clone https://github.com/your-username/HomeHive.git`
-2. Navigate to the project directory: `cd HomeHive`
+1. Clone the repository: `git clone https://github.com/tawhid-choudhury/home-hive-Real-estate-website-client.git`
+2. Navigate to the project directory: `cd home-hive-Real-estate-website-client`
 3. Install dependencies: `npm install`
-4. Run the project locally: `npm start`
+4. Run the project locally: `npm run dev`
 
 ### Backend Repository:
 
